@@ -16,9 +16,14 @@ int main(int argc, char** argv)
 	inputHandler.initialize();
 
 	//We create a tank
-	Tank *tank = new Tank(255,0,0,0,0,1.5,0.2,0);
+	Tank *tank = new Tank();
 
-	
+	tank->setColor(255,0,0);
+	tank->setPosition(0,0);
+	tank->setSize(0.2);
+	tank->setRotation(0);
+	tank->setDepth(1.5);
+	renderer.addObject(tank);
 
 
 	while (1)
@@ -27,7 +32,7 @@ int main(int argc, char** argv)
 		////////////////////////////
 		//process queued events
 		glutMainLoopEvent();
-
+		tank->tick();
 
 		//RENDER////////////////////
 		////////////////////////////

@@ -1,14 +1,21 @@
 #pragma once
-
-class Sprite;
-
-class Tank
+#include "Sprite.h"
+#include "Timer.h"
+//class Timer;
+class Tank: public Sprite
 {
 public:
-	Tank(float r,float g,float b,double x,double y,double depth,double size,double angle);
+	Tank();
 	~Tank();
 
-	Sprite *pSprite;
+	Timer timer;
+	double m_velx;
+	double m_vely;
+
+
+
+	void tick();
+	void setVel(double velX, double velY);
 
 
 

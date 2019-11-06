@@ -1,23 +1,35 @@
 #include "Tank.h"
 #include "Sprite.h"
 #include "Renderer.h"
+#include "Timer.h"
 
-Tank::Tank(float r, float g, float b, double x, double y, double depth, double size, double angle)
+Tank::Tank()
 {
-	pSprite = new Sprite();
-	pSprite->setColor(r, g, b);
-	pSprite->setPosition(x, y);
-	pSprite->setRotation(angle);
-	pSprite->setSize(size);
-	pSprite->setDepth(depth);
-
-	Renderer::get()->addObject(pSprite);
-
-
+	timer.start();
+	
 }
 
 Tank::~Tank()
 {
 
 }
+
+void Tank::tick()
+{
+	//We update the position each tick by adding to our position the multiplication of deltaTime * vector
+	double timeElapsed = timer.getElapsedTime();
+	double rotation=Sprite::getRotation();
+	double vectorx = cos(rotation);
+	double vectory = sin(rotation);
+	double newX = Sprite::getPositionX()+(vectorx * timeElapsed);
+	double newY = Sprite::getPositionY()+(vectory * timeElapsed);
+	Sprite::setPosition(newX,newY);
+}
+
+void Tank::setVel(double velX, double velY)
+{
+	m_velx = velX;
+	m_vely = velY;
+}
+
 

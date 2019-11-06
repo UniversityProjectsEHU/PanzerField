@@ -45,6 +45,29 @@ void Sprite::setSize(double size)
 	m_size=size;
 }
 
+double Sprite::getPositionX()
+{
+	return m_x;
+}
+
+double Sprite::getPositionY()
+{
+	return m_y;
+}
+
+double Sprite::getRotation()
+{
+	return m_angle;
+}
+void Sprite::setName(string name)
+{
+	m_name = name;
+}
+string Sprite::getName()
+{
+	return m_name;
+}
+
 void Sprite::draw()
 {
 	//TODO:
