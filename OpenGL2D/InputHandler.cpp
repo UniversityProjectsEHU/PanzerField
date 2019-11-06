@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "InputHandler.h"
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
+#include <iostream>
 
 InputHandler* InputHandler::m_pInputHandler = nullptr;
 
@@ -17,19 +18,35 @@ InputHandler::~InputHandler()
 void InputHandler::initialize()
 {
 	glutKeyboardFunc(__processKeyboard);
+	//glutKeyboardUpFunc(__processKeyboard2); Esto es para cuando se leventa la tecla
 }
 
 
 void InputHandler::processKeyboard(unsigned char key, int x, int y)
 {
+	std::cout << key;
 	//keyboard callback function
 	switch (key)
 	{
-		//TODO
-	case '8': break;
-	case '2': break;
-	case '6': break;
-	case '4': break;
+		
+    //TODO
+	    //a
+	case '97': 
+
+		break;
+		//w
+	case '119': 
+		
+		break;
+		//s
+	case '115': 
+		
+		break;
+		//d
+	case '100': 
+		
+		break;
+
 	case 27: exit(0);
 	}
 }
