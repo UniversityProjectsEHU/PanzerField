@@ -18,7 +18,7 @@ Tank::~Tank()
 
 void Tank::tick()
 {
-	//We update the position each tick by adding to our position the multiplication of deltaTime * vector
+	//We update the position each tick by adding to our position the multiplication of deltaTime * vector * velocity
 	double timeElapsed = timer.getElapsedTime();
 	double rotation=Sprite::getRotation();
 	double vectorx = cos(rotation);
