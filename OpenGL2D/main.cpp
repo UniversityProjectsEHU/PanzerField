@@ -36,7 +36,13 @@ int main(int argc, char** argv)
 		////////////////////////////
 		//process queued events
 		glutMainLoopEvent();
-		tank->tick();
+
+	/*	std::vector<Drawable> vectorObjects = renderer.getVector();
+		for each (Drawable var in vectorObjects)
+		{
+			Sprite theObject = (Sprite)var;
+		}
+		tank->tick();*/
 
 		//RENDER////////////////////
 		////////////////////////////

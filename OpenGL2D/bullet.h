@@ -1,17 +1,21 @@
 #pragma once
+#include "Timer.h"
+#include "Sprite.h"
 
 class Sprite;
 
-class bullet: public Sprite
+class Bullet: public Sprite
 {
-	/*Sprite *pSprite;
-	double velx;
-	double vely;*/
-
 public:
-	bullet();
-	~bullet();
+	Bullet();
+	~Bullet();
 
-	/*void tick();*/
+	Timer timer;
+	double m_velx;
+	double m_vely;
+	
+
+	void tick();
+	void draw();
+	void setVel(double velX, double velY);
 };
-
