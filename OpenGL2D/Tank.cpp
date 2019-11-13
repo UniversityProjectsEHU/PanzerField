@@ -26,9 +26,9 @@ void Tank::tick()
 	double newX = Sprite::getPositionX()+(vectorx * timeElapsed*m_velx);
 	double newY = Sprite::getPositionY()+(vectory * timeElapsed*m_vely);
 	Sprite::setPosition(newX,newY);
-	std::cout << newX<<newY;
-	m_velx = 0;
-	m_vely = 0;
+	/*std::cout << newX<<newY;*/
+	/*m_velx = 0;
+	m_vely = 0;*/
 }
 
 void Tank::setVel(double velX, double velY)

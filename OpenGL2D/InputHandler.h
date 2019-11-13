@@ -13,6 +13,8 @@ public:
 	void initialize();
 
 	void processKeyboard(unsigned char key, int x, int y);
+	void processKeyboard2(unsigned char key, int x, int y);
 	static void __processKeyboard(unsigned char key, int x, int y);
+	static void __processKeyboard2(unsigned char key, int x, int y);
 };
 
