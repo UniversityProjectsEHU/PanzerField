@@ -23,13 +23,18 @@ Renderer* Renderer::get()
 	return m_pRenderer;
 }
 
-vector<Drawable> Renderer::getObjects(string name)
+vector<Drawable*> Renderer::getObjects(string name)
 {
+	std::vector<Drawable*> vectorDraw;
 	for each (Drawable* var in m_objects2D)
 	{
-		//Sprite(var).getName();
+		Sprite *theObject = (Sprite*)var;
+		string theName = theObject->getName();
+		if (theName == name) {
+			vectorDraw.push_back(var);
+		}
 	}
-	return vector<Drawable>();
+	return vectorDraw;
 }
 
 

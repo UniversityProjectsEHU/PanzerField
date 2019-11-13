@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include "Renderer.h"
 #include "Timer.h"
+#include "stdafx.h"
 
 Tank::Tank()
 {

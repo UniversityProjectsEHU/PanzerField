@@ -25,7 +25,6 @@
     <ClCompile Include="Tank.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h" />
@@ -53,7 +52,6 @@
     <ClInclude Include="Tank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

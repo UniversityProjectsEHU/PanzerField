@@ -19,7 +19,7 @@ public:
 	void initialize(int argc, char** argv);
 	vector<Drawable> getVector();
 	static Renderer* get(); //this method returns the only instance to the renderer. Needs to be called after the constructor
-	vector<Drawable>getObjects(string name);
+	vector<Drawable*>getObjects(string name);
 	void drawScene();
 	void addObject(Drawable* pObj);
 	void reshapeWindow(int x, int y);

@@ -4,14 +4,14 @@ class Sprite;
 
 class bullet: public Sprite
 {
-	Sprite *pSprite;
+	/*Sprite *pSprite;
 	double velx;
-	double vely;
+	double vely;*/
 
 public:
 	bullet();
 	~bullet();
 
-	void tick();
+	/*void tick();*/
 };
 
