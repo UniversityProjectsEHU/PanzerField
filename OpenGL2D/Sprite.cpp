@@ -105,9 +105,11 @@ void Sprite::draw()
 	glScalef(m_size, m_size, 1);
 	glRotatef(m_angle, 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	glBegin(GL_TRIANGLES);
+	glBegin(GL_POLYGON);
 	glVertex3f(-1, -1, -5);
-	glVertex3f(1, 0, -5);
+	glVertex3f(1, -1, -5);
+	glVertex3f(2, 0, -5);
+	glVertex3f(1, 1, -5);
 	glVertex3f(-1, 1, -5);
 	glEnd();
 	//5. Restore the transformation matrix
