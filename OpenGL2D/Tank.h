@@ -1,7 +1,7 @@
 #pragma once
 #include "Sprite.h"
 #include "Timer.h"
-//class Timer;
+
 class Tank: public Sprite
 {
 public:
@@ -16,6 +16,7 @@ public:
 
 
 	void tick();
+	void draw();
 	void setVel(double velX, double velY);
 	void setVelRotation(double velRotation);
 
@@ -31,5 +32,6 @@ public:
 
 
 
+	void shoot();
 };
 	

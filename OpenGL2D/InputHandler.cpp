@@ -75,7 +75,14 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 			theTank->setVelRotation(-0.1);
 		}
 		break;
-
+	case 32:
+		vectorObjects = m_renderer.getObjects("tank");
+		for each (Drawable* var in vectorObjects)
+		{
+			Tank* theTank = (Tank*)var;
+			theTank->shoot();
+		}
+		break;
 	case 27: exit(0);
 	}
 }

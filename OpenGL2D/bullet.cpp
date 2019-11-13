@@ -2,21 +2,39 @@
 #include "Sprite.h"
 #include "Renderer.h"
 #include "Time.h"
+#include <math.h>
+# define M_PI           3.14159265358979323846  /* pi */
 
-
-bullet::bullet()
+Bullet::Bullet()
 {
-	//Definir la velocidad
-	/*velx = 1;
-	vely = 1;*/
+	timer.start();
 }
 
-
-bullet::~bullet()
+Bullet::~Bullet()
 {
+
 }
 
-//void bullet::tick() {
-//	double newX;
-//	double newY;
-//}
+void Bullet::tick()
+{
+	//We update the position each tick by adding to our position the multiplication of deltaTime * vector * velocity
+	double timeElapsed = timer.getElapsedTime();
+	double rotation = Sprite::getRotation();
+	double radianes = (rotation * M_PI) / 180;
+	double vectorx = cos(radianes);
+	double vectory = sin(radianes);
+	double newX = Sprite::getPositionX() + (vectorx * timeElapsed*m_velx);
+	double newY = Sprite::getPositionY() + (vectory * timeElapsed*m_vely);
+	Sprite::setPosition(newX, newY);
+}
+
+void Bullet::setVel(double velX, double velY)
+{
+	m_velx = velX;
+	m_vely = velY;
+}
+
+void Bullet::draw() {
+	tick();
+	Sprite::draw();
+}
