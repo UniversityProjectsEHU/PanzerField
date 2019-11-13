@@ -54,7 +54,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		{
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
-			theTank->tick();
+			theTank->setVel(0.01,0.01);
 		}
 		break;
 		//s
@@ -64,7 +64,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		{
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
-			theTank->tick();
+			theTank->setVel(-0.01, -0.01);
 		}
 		break;
 		//d

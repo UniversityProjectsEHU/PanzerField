@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 	tank->setDepth(1.5);
 
 	tank->setName("tank");
-	tank->setVel(0.1,0.1);
+	tank->setVel(0,0);
 
 	renderer.addObject(tank);
 
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 		////////////////////////////
 		//process queued events
 		glutMainLoopEvent();
-		/*tank->tick();*/
+		tank->tick();
 
 		//RENDER////////////////////
 		////////////////////////////
