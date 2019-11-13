@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 
 	tank->setColor(255,0,0);
 	tank->setPosition(0,0);
-	tank->setSize(0.2);
+	tank->setSize(0.02);
 	tank->setRotation(0);
 	tank->setDepth(1.5);
 

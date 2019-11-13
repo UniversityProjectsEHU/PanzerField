@@ -39,8 +39,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		vectorObjects = m_renderer.getObjects("tank");
 		for each (Drawable* var in vectorObjects)
 		{
-			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			Tank* theTank = (Tank*)var;
 			double theRotation = theTank->getRotation();
 			theTank->setRotation(theRotation + 10);
 		}
@@ -102,7 +101,6 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 	//	break;
 		//w
 	case 119:
-		std::cout << "bajadaaaaa";
 		vectorObjects = m_renderer.getObjects("tank");
 		for each (Drawable* var in vectorObjects)
 		{

@@ -4,6 +4,8 @@
 #include "Timer.h"
 #include "stdafx.h"
 #include <iostream>
+#include <math.h>
+# define M_PI           3.14159265358979323846  /* pi */
 
 Tank::Tank()
 {
@@ -21,14 +23,12 @@ void Tank::tick()
 	//We update the position each tick by adding to our position the multiplication of deltaTime * vector * velocity
 	double timeElapsed = timer.getElapsedTime();
 	double rotation=Sprite::getRotation();
-	double vectorx = cos(rotation);
-	double vectory = sin(rotation);
+	double radianes = (rotation * M_PI) / 180;
+	double vectorx = cos(radianes);
+	double vectory = sin(radianes);
 	double newX = Sprite::getPositionX()+(vectorx * timeElapsed*m_velx);
 	double newY = Sprite::getPositionY()+(vectory * timeElapsed*m_vely);
 	Sprite::setPosition(newX,newY);
-	/*std::cout << newX<<newY;*/
-	/*m_velx = 0;
-	m_vely = 0;*/
 }
 
 void Tank::setVel(double velX, double velY)
