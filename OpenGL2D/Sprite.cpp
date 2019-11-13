@@ -109,7 +109,6 @@ void Sprite::draw()
 	glBegin(GL_POLYGON);
 	glVertex3f(-1, -1, -5);
 	glVertex3f(1, -1, -5);
-	glVertex3f(2, 0, -5);
 	glVertex3f(1, 1, -5);
 	glVertex3f(-1, 1, -5);
 	glEnd();

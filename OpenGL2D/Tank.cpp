@@ -66,7 +66,24 @@ void Tank::shoot() {
 
 void Tank::draw() {
 	tick();
-	Sprite::draw();
+	//1. Pass the object's color to OpenGL
+	glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
+	//2. Save the current transformation matrix
+	glPushMatrix();
+	//3. Set the transformation matrix of the quad using position, size and angle
+	glTranslatef(Sprite::getPositionX(), Sprite::getPositionY(), Sprite::getDepth());
+	glScalef(Sprite::getSize(), Sprite::getSize(), 1);
+	glRotatef(Sprite::getRotation(), 0, 0, 1);
+	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
+	glBegin(GL_POLYGON);
+	glVertex3f(-1, -1, -5);
+	glVertex3f(1, -1, -5);
+	glVertex3f(2, 0, -5);
+	glVertex3f(1, 1, -5);
+	glVertex3f(-1, 1, -5);
+	glEnd();
+	//5. Restore the transformation matrix
+	glPopMatrix();
 }
 void Tank::setVelRotation(double velRotation)
 {

@@ -9,7 +9,7 @@ class Renderer
 	static Renderer* m_pRenderer;
 	int m_windowWidth = 0, m_windowHeight = 0;
 
-	vector <Drawable*> m_objects2D;
+	vector <Drawable*> m_objects2D= vector<Drawable*>();
 
 	void set2DMatrix();
 public:

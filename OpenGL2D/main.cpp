@@ -2,6 +2,7 @@
 #include "InputHandler.h"
 #include "Renderer.h"
 #include "Sprite.h"
+#include "Map.h"
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
 #include "Tank.h"
 
@@ -30,6 +31,7 @@ int main(int argc, char** argv)
 	renderer.addObject(tank);
 
 
+	Map map("Map1.txt");
 	while (1)
 	{
 		//UPDATE////////////////////
