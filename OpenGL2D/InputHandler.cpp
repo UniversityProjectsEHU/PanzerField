@@ -41,7 +41,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		{
 			Tank* theTank = (Tank*)var;
 			double theRotation = theTank->getRotation();
-			theTank->setRotation(theRotation + 10);
+			theTank->setVelRotation(0.1);
 		}
 		break;
 		//w
@@ -51,7 +51,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		{
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
-			theTank->setVel(0.0001,0.0001);
+			theTank->setVel(0.5,0.5);
 		}
 		break;
 		//s
@@ -61,7 +61,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		{
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
-			theTank->setVel(-0.0001,-0.0001);
+			theTank->setVel(-0.5,-0.5);
 		}
 		break;
 		//d
@@ -72,7 +72,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
 			double theRotation = theTank->getRotation();
-			theTank->setRotation(theRotation-10);
+			theTank->setVelRotation(-0.1);
 		}
 		break;
 
@@ -88,17 +88,17 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 	//keyboard callback function
 	switch (key)
 	{
-	//		//a
-	//case 97:
-	//	vectorObjects = m_renderer.getObjects("tank");
-	//	for each (Drawable* var in vectorObjects)
-	//	{
-	//		Sprite* theObject = (Sprite*)var;
-	//		Tank* theTank = (Tank*)theObject;
-	//		double theRotation = theTank->getRotation();
-	//		theTank->setRotation(theRotation + 10);
-	//	}
-	//	break;
+		//a
+	case 97:
+		vectorObjects = m_renderer.getObjects("tank");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			double theRotation = theTank->getRotation();
+			theTank->setVelRotation(0);
+		}
+		break;
 		//w
 	case 119:
 		vectorObjects = m_renderer.getObjects("tank");
@@ -119,7 +119,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 			theTank->setVel(0,0);
 		}
 		break;
-		/*//d
+		//d
 	case 100:
 		vectorObjects = m_renderer.getObjects("tank");
 		for each (Drawable* var in vectorObjects)
@@ -127,9 +127,10 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
 			double theRotation = theTank->getRotation();
-			theTank->setRotation(theRotation - 10);
+			theTank->setVelRotation(0);
+
 		}
-		break;*/
+		break;
 
 	case 27: exit(0);
 	}

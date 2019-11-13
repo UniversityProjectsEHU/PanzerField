@@ -11,11 +11,13 @@ public:
 	Timer timer;
 	double m_velx;
 	double m_vely;
+	double m_velrotation=0;
 
 
 
 	void tick();
 	void setVel(double velX, double velY);
+	void setVelRotation(double velRotation);
 
 
 
