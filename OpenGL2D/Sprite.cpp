@@ -59,6 +59,30 @@ double Sprite::getRotation()
 {
 	return m_angle;
 }
+
+float Sprite::getRed()
+{
+	return m_r;
+}
+
+float Sprite::getGreen()
+{
+	return m_g;
+}
+
+float Sprite::getBlue()
+{
+	return m_b;
+}
+
+double Sprite::getSize()
+{
+	return m_size;
+}
+double Sprite::getDepth()
+{
+	return m_depth;
+}
 void Sprite::setName(string name)
 {
 	m_name = name;
@@ -81,10 +105,9 @@ void Sprite::draw()
 	glScalef(m_size, m_size, 1);
 	glRotatef(m_angle, 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	glBegin(GL_QUADS);
+	glBegin(GL_TRIANGLES);
 	glVertex3f(-1, -1, -5);
-	glVertex3f(1, -1, -5);
-	glVertex3f(1, 1, -5);
+	glVertex3f(1, 0, -5);
 	glVertex3f(-1, 1, -5);
 	glEnd();
 	//5. Restore the transformation matrix

@@ -29,6 +29,11 @@ public:
 	double getPositionX();
 	double getPositionY();
     double getRotation();
+	float getRed();
+	float getGreen();
+	float getBlue();
+	double getSize();
+	double getDepth();
 	
 	string getName();
 	void setName(string name);
