@@ -56,21 +56,25 @@
   <ItemGroup>
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="pruebas.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Tank.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Timer.h" />

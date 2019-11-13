@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Drawable.h"
-
+#include <string>
+using namespace std;
 class Sprite: public Drawable
 {
 	float m_r, m_g, m_b;
@@ -13,6 +14,8 @@ class Sprite: public Drawable
 	double m_size= 1.0; //size of the quad
 
 	double m_angle= 0.0; //rotation angle
+
+	string m_name;
 public:
 	Sprite();
 	~Sprite();
@@ -23,5 +26,17 @@ public:
 	void setDepth(double depth);
 	void setRotation(double angle);
 	void setSize(double size);
+	double getPositionX();
+	double getPositionY();
+    double getRotation();
+	float getRed();
+	float getGreen();
+	float getBlue();
+	double getSize();
+	double getDepth();
+	
+	string getName();
+	void setName(string name);
+	
 };
 
