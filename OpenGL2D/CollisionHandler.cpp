@@ -4,6 +4,9 @@
 #include <math.h>
 #include "Drawable.h"
 
+CollisionHandler* CollisionHandler::m_pCollision= nullptr;
+
+
 CollisionHandler::CollisionHandler()
 {
 }

@@ -15,6 +15,7 @@
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
 #include <iostream> //Text color
 #include <windows.h>
+#include "CollisionHandler.h"
 //#include "../SoundManager/SoundManager.h"
 
 Map::Map(std::string nameFile)
@@ -73,7 +74,9 @@ void Map::createWallSprite(double xaxis, double yaxis)
 	pSprite1->setRotation(0.0);
 	pSprite1->setSize(0.1);
 	pSprite1->setDepth(1.5);
+	pSprite1->setName("wall");
 	Renderer::get()->addObject(pSprite1);
+	CollisionHandler::get()->addObjectCol(pSprite1);
 }
 
 void Map::createFieldSprite(double xaxis, double yaxis)
