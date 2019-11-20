@@ -23,7 +23,10 @@ Tank::~Tank()
 
 void Tank::tick()
 {
+
 	//We update the position each tick by adding to our position the multiplication of deltaTime * vector * velocity
+	double oldX = Sprite::getPositionX();
+	double oldY = Sprite::getPositionY();
 	double timeElapsed = timer.getElapsedTime(true);
 	double rotation=Sprite::getRotation();
 	double radianes = (rotation * M_PI) / 180;
@@ -35,6 +38,25 @@ void Tank::tick()
 	frontx = Sprite::getPositionX() + (vectorx  *0.05);
 	fronty = Sprite::getPositionY() + (vectory *0.05);
 	Sprite::setPosition(newX,newY);
+	//Collisions
+	std::vector<int> collisions; 
+	string name = Sprite::getName();
+	collisions = CollisionHandler::get()->handleCollision(name);
+	if (collisions[1]==1) { //Collision with bullet
+		Renderer::get()->clearAll();
+	}
+	else if (collisions[0] == 1) //Collision with wall
+	{
+		Sprite::setPosition(oldX, oldY);
+	}
+	else if (collisions[2]==1 && name=="tank2") //Collision with tank1
+	{
+		Sprite::setPosition(oldX, oldY);
+	}
+	else if (collisions[3] == 1 && name == "tank1") //Collision with tank2
+	{
+		Sprite::setPosition(oldX, oldY);
+	}
 	//We update the rotation if the velocity of rotation is not equal to zero
 	if (m_velrotation != 0)
 	{

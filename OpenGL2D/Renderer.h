@@ -22,6 +22,7 @@ public:
 	vector<Drawable*>getObjects(string name);
 	void drawScene();
 	void addObject(Drawable* pObj);
+	void clearAll();
 	void reshapeWindow(int x, int y);
 
 	static void __drawScene();
