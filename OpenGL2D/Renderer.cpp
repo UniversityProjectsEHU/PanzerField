@@ -89,7 +89,8 @@ void Renderer::addObject(Drawable* pObj)
 
 void Renderer::clearAll() 
 {
-	m_objects2D.clear();
+	exit(1);
+	//m_objects2D.clear();
 }
 
 void Renderer::drawScene()

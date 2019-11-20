@@ -10,6 +10,7 @@
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
 #include "Tank.h"
 #include "CollisionHandler.h"
+#include "TankEnemy.h"
 
 
 
@@ -32,7 +33,7 @@ int main(int argc, char** argv)
 	tank->setRotation(0);
 	tank->setDepth(1.5);
 
-	tank->setName("tank");
+	tank->setName("tank1");
 	tank->setVel(0,0);
 
 	renderer.addObject(tank);
