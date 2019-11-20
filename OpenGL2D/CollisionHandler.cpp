@@ -9,6 +9,7 @@ CollisionHandler* CollisionHandler::m_pCollision= nullptr;
 
 CollisionHandler::CollisionHandler()
 {
+	m_pCollision = this;
 }
 
 
@@ -30,7 +31,7 @@ void CollisionHandler::addObjectCol(Drawable* pObj)
 
 vector<int> CollisionHandler::handleCollision(string name)
 {
-	std::vector<int> vectorCollisions;
+	std::vector<int> vectorCollisions = {0, 0, 0, 0};
 
 	for each (Drawable* var in m_objects2D)
 	{
