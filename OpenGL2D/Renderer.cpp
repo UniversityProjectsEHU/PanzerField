@@ -2,6 +2,7 @@
 #include "Renderer.h"
 #include "Drawable.h"
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
+#include "Sprite.h"
 
 Renderer* Renderer::m_pRenderer = nullptr;
 
@@ -22,6 +23,21 @@ Renderer* Renderer::get()
 	return m_pRenderer;
 }
 
+vector<Drawable*> Renderer::getObjects(string name)
+{
+	std::vector<Drawable*> vectorDraw;
+	for each (Drawable* var in m_objects2D)
+	{
+		Sprite *theObject = (Sprite*)var;
+		string theName = theObject->getName();
+		if (theName == name) {
+			vectorDraw.push_back(var);
+		}
+	}
+	return vectorDraw;
+}
+
+
 void Renderer::initialize(int argc, char** argv)
 {
 	//INIT GLUT/////////////////////
@@ -38,6 +54,11 @@ void Renderer::initialize(int argc, char** argv)
 	//callback functions
 	glutDisplayFunc(__drawScene);
 	glutReshapeFunc(__reshapeWindow);
+}
+
+vector<Drawable> Renderer::getVector()
+{
+	return vector<Drawable>();
 }
 
 void Renderer::set2DMatrix()

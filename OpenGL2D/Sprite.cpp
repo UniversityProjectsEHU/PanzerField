@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Sprite.h"
-
+#include <iostream>
 
 Sprite::Sprite()
 {
@@ -37,12 +37,60 @@ void Sprite::setRotation(double angle)
 {
 	//This method only updates internally the object's rotation. It still needs to be passed to OpenGL before drawing it
 	m_angle = angle;
+	std::cout << m_angle;
 }
 
 void Sprite::setSize(double size)
 {
 	//This method only updates internally the object's size. It still needs to be passed to OpenGL before drawing it
 	m_size=size;
+}
+
+double Sprite::getPositionX()
+{
+	return m_x;
+}
+
+double Sprite::getPositionY()
+{
+	return m_y;
+}
+
+double Sprite::getRotation()
+{
+	return m_angle;
+}
+
+float Sprite::getRed()
+{
+	return m_r;
+}
+
+float Sprite::getGreen()
+{
+	return m_g;
+}
+
+float Sprite::getBlue()
+{
+	return m_b;
+}
+
+double Sprite::getSize()
+{
+	return m_size;
+}
+double Sprite::getDepth()
+{
+	return m_depth;
+}
+void Sprite::setName(string name)
+{
+	m_name = name;
+}
+string Sprite::getName()
+{
+	return m_name;
 }
 
 void Sprite::drawGrass()
@@ -58,7 +106,7 @@ void Sprite::drawGrass()
 	glScalef(m_size, m_size, 1);
 	glRotatef(m_angle, 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	glBegin(GL_QUADS);
+	glBegin(GL_POLYGON);
 	glVertex3f(-1, -1, -5);
 	glVertex3f(1, -1, -5);
 	glVertex3f(1, 1, -5);

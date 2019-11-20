@@ -50,7 +50,7 @@ void Map::createMap(std::string nameFile)
 						i = i + 0.1;
 					}
 					else if (character == '0') {
-						createFieldSprite(i, j);
+						//createFieldSprite(i, j);
 						i = i + 0.1;
 					}
 					else if (character == '/') {
