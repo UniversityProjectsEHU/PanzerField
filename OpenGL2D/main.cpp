@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 	std::cin >> character;
 	switch (character) {
 	case '1':
-		cad = "Map1.txt";
+		cad = "Map6.txt";
 		break;
 	case '2':
 		cad = "Map2.txt";
