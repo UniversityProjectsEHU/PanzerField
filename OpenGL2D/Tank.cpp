@@ -37,7 +37,7 @@ void Tank::tick()
 	//We update the rotation if the velocity of rotation is not equal to zero
 	if (m_velrotation != 0)
 	{
-		Sprite::setRotation(Sprite::getRotation() + m_velrotation);
+		Sprite::setRotation(Sprite::getRotation() + m_velrotation*timeElapsed);
 
 	}
 }
