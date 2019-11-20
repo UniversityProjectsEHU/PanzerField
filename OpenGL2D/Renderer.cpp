@@ -82,6 +82,11 @@ void Renderer::reshapeWindow(int w, int h)
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 }
 
+void Renderer::erase(Drawable * obj)
+{
+
+}
+
 void Renderer::addObject(Drawable* pObj)
 {
 	m_objects2D.push_back(pObj);

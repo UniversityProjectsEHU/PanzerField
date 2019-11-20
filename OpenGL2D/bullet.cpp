@@ -19,6 +19,11 @@ Bullet::~Bullet()
 
 void Bullet::tick()
 {
+	double TTL = timer.getElapsedTime(false);
+	if (TTL > 5)
+	{
+		
+	}
 	//We update the position each tick by adding to our position the multiplication of deltaTime * vector * velocity
 	double oldX = Sprite::getPositionX();
 	double oldY = Sprite::getPositionY();
