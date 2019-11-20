@@ -2,7 +2,11 @@
 #include "InputHandler.h"
 #include "Renderer.h"
 #include "Sprite.h"
+#include "stdio.h"
 #include "Map.h"
+#include <fstream>
+#include <istream>
+#include <iostream>
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
 #include "Tank.h"
 #include "CollisionHandler.h"
@@ -32,9 +36,28 @@ int main(int argc, char** argv)
 	tank->setVel(0,0);
 
 	renderer.addObject(tank);
-
-
-	Map map("Map1.txt");
+	char character;
+	string cad;
+	std::cout << "Please press a number from 1 to 5";
+	std::cin >> character;
+	switch (character) {
+	case '1':
+		cad = "Map1.txt";
+		break;
+	case '2':
+		cad = "Map2.txt";
+		break;
+	case '3':
+		cad = "Map3.txt";
+		break;
+	case '4':
+		cad = "Map4.txt";
+		break;
+	case '5':
+		cad = "Map5.txt";
+		break;
+	}
+	Map map(cad);
 	while (1)
 	{
 		//UPDATE////////////////////

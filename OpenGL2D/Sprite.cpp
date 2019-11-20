@@ -93,7 +93,7 @@ string Sprite::getName()
 	return m_name;
 }
 
-void Sprite::drawGrass()
+void Sprite::draw()
 {
 	//TODO:
 
@@ -107,28 +107,6 @@ void Sprite::drawGrass()
 	glRotatef(m_angle, 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
 	glBegin(GL_POLYGON);
-	glVertex3f(-1, -1, -5);
-	glVertex3f(1, -1, -5);
-	glVertex3f(1, 1, -5);
-	glVertex3f(-1, 1, -5);
-	glEnd();
-	//5. Restore the transformation matrix
-	glPopMatrix();
-}
-void Sprite::drawWall()
-{
-	//TODO:
-
-	//1. Pass the object's color to OpenGL
-	glColor3f(m_r, m_g, m_b);
-	//2. Save the current transformation matrix
-	glPushMatrix();
-	//3. Set the transformation matrix of the quad using position, size and angle
-	glTranslatef(m_x, m_y, m_depth);
-	glScalef(m_size, m_size, 1);
-	glRotatef(m_angle, 0, 0, 1);
-	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	glBegin(GL_QUADS);
 	glVertex3f(-1, -1, -5);
 	glVertex3f(1, -1, -5);
 	glVertex3f(1, 1, -5);
