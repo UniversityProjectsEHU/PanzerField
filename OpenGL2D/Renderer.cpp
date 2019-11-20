@@ -87,6 +87,11 @@ void Renderer::addObject(Drawable* pObj)
 	m_objects2D.push_back(pObj);
 }
 
+void Renderer::clearAll() 
+{
+	m_objects2D.clear();
+}
+
 void Renderer::drawScene()
 {
 	//clean the backbuffer
