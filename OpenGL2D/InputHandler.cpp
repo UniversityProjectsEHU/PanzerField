@@ -41,7 +41,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		{
 			Tank* theTank = (Tank*)var;
 			double theRotation = theTank->getRotation();
-			theTank->setVelRotation(0.1);
+			theTank->setVelRotation(100);
 		}
 		break;
 		//w
@@ -72,7 +72,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
 			double theRotation = theTank->getRotation();
-			theTank->setVelRotation(-0.1);
+			theTank->setVelRotation(-100);
 		}
 		break;
 	case 32:

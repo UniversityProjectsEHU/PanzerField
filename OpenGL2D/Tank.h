@@ -12,6 +12,8 @@ public:
 	double m_velx;
 	double m_vely;
 	double m_velrotation=0;
+	double frontx;
+	double fronty;
 
 
 
