@@ -37,8 +37,7 @@ int main(int argc, char** argv)
 	tank->setVel(0,0);
 
 	renderer.addObject(tank);
-
-	//We create the secondo tank
+	//We create a enemy tank
 	TankEnemy *tank2 = new TankEnemy();
 
 	tank2->setColor(0, 0, 255);
@@ -57,7 +56,7 @@ int main(int argc, char** argv)
 	std::cin >> character;
 	switch (character) {
 	case '1':
-		cad = "Map1.txt";
+		cad = "Map6.txt";
 		break;
 	case '2':
 		cad = "Map2.txt";
