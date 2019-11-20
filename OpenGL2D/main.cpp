@@ -5,6 +5,7 @@
 #include "Map.h"
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
 #include "Tank.h"
+#include "CollisionHandler.h"
 
 
 
@@ -12,9 +13,11 @@ int main(int argc, char** argv)
 {
 	Renderer renderer;
 	InputHandler inputHandler(renderer);
-	
+	CollisionHandler collisionHandler;
+
 	renderer.initialize(argc, argv);
 	inputHandler.initialize();
+
 
 	//We create a tank
 	Tank *tank = new Tank();

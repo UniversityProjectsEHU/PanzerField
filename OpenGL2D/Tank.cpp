@@ -7,12 +7,13 @@
 #include "Bullet.h"
 #include <iostream>
 #include <math.h>
+#include "CollisionHandler.h"
 # define M_PI           3.14159265358979323846  /* pi */
 
 Tank::Tank()
 {
 	timer.start();
-	
+	CollisionHandler::get()->addObjectCol(this);
 }
 
 Tank::~Tank()
