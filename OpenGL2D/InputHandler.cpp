@@ -36,7 +36,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	{
 	    //a
 	case 97:
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Tank* theTank = (Tank*)var;
@@ -46,7 +46,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		break;
 		//w
 	case 119: 
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
@@ -56,7 +56,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		break;
 		//s
 	case 115: 
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
@@ -66,7 +66,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		break;
 		//d
 	case 100: 
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
@@ -76,7 +76,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		}
 		break;
 	case 32:
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Tank* theTank = (Tank*)var;
@@ -97,7 +97,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 	{
 		//a
 	case 97:
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
@@ -108,7 +108,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		break;
 		//w
 	case 119:
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
@@ -118,7 +118,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		break;
 		//s
 	case 115:
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
@@ -128,7 +128,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		break;
 		//d
 	case 100:
-		vectorObjects = m_renderer.getObjects("tank");
+		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;

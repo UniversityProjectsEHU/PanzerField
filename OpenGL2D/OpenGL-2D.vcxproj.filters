@@ -32,6 +32,9 @@
     <ClCompile Include="CollisionHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TankEnemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h" />
@@ -64,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="Map.h" />
     <ClInclude Include="CollisionHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TankEnemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
