@@ -6,7 +6,7 @@ Programado en C++ y uso de la librería OpenGL (Open Graphics Library).
 
 -----------------------------------
 
-Local multiplayer game developed in the subject Graphical Systems Design of the 4th grade of the Computer Engineering degree in the UPV-EHU University in Vitoria-Gasteiz.
+Local multiplayer game developed in the subject Graphical Systems Design of the 4th grade of the Computer Engineering and Information System Management degree in the UPV-EHU University in Vitoria-Gasteiz.
 
 Programmed in C++ using the library OpenGL (Open Graphics Library)
 
