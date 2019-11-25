@@ -4,6 +4,12 @@ Videojuego multijugador local desarrollado durante la asignatura Diseño de Sist
 
 Programado en C++ y uso de la librería OpenGL (Open Graphics Library).
 
+-----------------------------------
+
+Local multiplayer game developed in the subject Graphical Systems Design of the 4th grade of the Computer Engineering degree in the UPV-EHU University in Vitoria-Gasteiz.
+
+Programmed in C++ using the library OpenGL (Open Graphics Library)
+
 ![logo](https://github.com/UniversityProjectsEHU/PanzerField/blob/master/PanzerField.png)
 
 Sergio Hernando
