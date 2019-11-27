@@ -14,6 +14,8 @@ Tank::Tank()
 {
 	timer.start();
 	CollisionHandler::get()->addObjectCol(this);
+	bullet = new Bullet();
+	Renderer::get()->addObject(bullet);
 }
 
 Tank::~Tank()
@@ -72,19 +74,24 @@ void Tank::setVel(double velX, double velY)
 }
 
 void Tank::shoot() {
-	Bullet *bullet = new Bullet();
-	
-	
-	bullet->setColor(255, 255, 255);
-	bullet->setPosition(frontx, fronty);
-	bullet->setSize(0.01);
-	bullet->setRotation(Sprite::getRotation());
-	bullet->setDepth(1.5);
+	//Bullet *bullet = new Bullet();
+	if (bullet->getisAlive()==false)
+	{
+		bullet->setAlive();
 
-	bullet->setName("bullet");
-	bullet->setVel(1, 1);
+		bullet->setColor(255, 255, 255);
+		bullet->setPosition(frontx, fronty);
+		bullet->setSize(0.01);
+		bullet->setRotation(Sprite::getRotation());
+		bullet->setDepth(1.5);
 
-	Renderer::get()->addObject(bullet);
+		bullet->setName("bullet");
+		bullet->setVel(1, 1);
+		
+		//Renderer::get()->addObject(bullet);
+	}
+	
+
 }
 
 void Tank::draw() {

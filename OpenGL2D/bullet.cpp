@@ -10,20 +10,17 @@ Bullet::Bullet()
 {
 	timer.start();
 	CollisionHandler::get()->addObjectCol(this);
+	isalive = false;
 }
 
 Bullet::~Bullet()
 {
-
+	
 }
 
 void Bullet::tick()
 {
-	double TTL = timer.getElapsedTime(false);
-	if (TTL > 5)
-	{
-		
-	}
+
 	//We update the position each tick by adding to our position the multiplication of deltaTime * vector * velocity
 	double oldX = Sprite::getPositionX();
 	double oldY = Sprite::getPositionY();
@@ -49,6 +46,11 @@ void Bullet::tick()
 	{
 		Renderer::get()->clearAll();
 	}
+	if (collisions[0] == 1) //Collision with wall
+	{
+		//Renderer::get()->deleteObject(this);
+		isalive = false;
+	}
 }
 
 void Bullet::setVel(double velX, double velY)
@@ -57,7 +59,22 @@ void Bullet::setVel(double velX, double velY)
 	m_vely = velY;
 }
 
+void Bullet::setAlive()
+{
+	isalive = true;
+	timer.start();
+}
+
+bool Bullet::getisAlive()
+{
+	return isalive;
+}
+
 void Bullet::draw() {
 	tick();
-	Sprite::draw();
+	if (isalive)
+	{
+		Sprite::draw();
+	}
+	
 }

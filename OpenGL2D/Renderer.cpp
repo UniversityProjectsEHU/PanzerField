@@ -110,6 +110,12 @@ void Renderer::drawScene()
 	{
 		(*it)->draw();
 	}
+	if (deleteposition != -1)
+	{
+		//We erase the object after we draw the entire vector
+		m_objects2D.erase(m_objects2D.begin() + deleteposition);
+		deleteposition = -1;
+	}
 }
 
 
@@ -123,4 +129,22 @@ void Renderer::__reshapeWindow(int x, int y)
 {
 	if (m_pRenderer)
 		m_pRenderer->reshapeWindow(x, y);
+}
+
+void Renderer::deleteObject(Sprite *object)
+{
+
+	
+	int cont = 0;
+	//std::vector<Drawable*>::iterator it = m_objects2D.begin();
+	for each (Drawable* var in m_objects2D)
+	{		
+		Sprite *theObject = (Sprite*)var;
+		string theName = theObject->getName();
+		if (theObject == object) {
+			//object->~Sprite();
+			deleteposition = cont;
+		}
+		cont++;
+	}
 }
