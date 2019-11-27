@@ -13,9 +13,11 @@ public:
 	Timer timer;
 	double m_velx;
 	double m_vely;
-	
+	bool isalive;
 
 	void tick();
 	void draw();
 	void setVel(double velX, double velY);
+	void setAlive();
+	bool getisAlive();
 };

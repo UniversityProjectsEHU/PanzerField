@@ -2,12 +2,14 @@
 
 class Drawable;
 #include <vector>
+#include "Sprite.h"
 using namespace std;
 
 class Renderer
 {
 	static Renderer* m_pRenderer;
 	int m_windowWidth = 0, m_windowHeight = 0;
+	int deleteposition = -1;
 
 	vector <Drawable*> m_objects2D= vector<Drawable*>();
 
@@ -27,5 +29,6 @@ public:
 	void erase(Drawable* obj);
 	static void __drawScene();
 	static void __reshapeWindow(int x, int y);
+	void deleteObject(Sprite *object);
 };
 
