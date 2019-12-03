@@ -15,6 +15,7 @@
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TankEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -56,6 +57,7 @@
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TankEnemy.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Desktop\Map.csv" />
