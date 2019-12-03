@@ -14,6 +14,9 @@ TankEnemy::TankEnemy()
 {
 	timer.start();
 	CollisionHandler::get()->addObjectCol(this);
+	bullet = new Bullet();
+	bullet->setName("bullet2");
+	Renderer::get()->addObject(bullet);
 }
 
 TankEnemy::~TankEnemy()
@@ -72,19 +75,23 @@ void TankEnemy::setVel(double velX, double velY)
 }
 
 void TankEnemy::shoot() {
-	Bullet *bullet = new Bullet();
+	//Bullet *bullet = new Bullet();
+	if (bullet->getisAlive() == false)
+	{
+		bullet->setAlive();
+
+		bullet->setColor(255, 255, 255);
+		bullet->setPosition(frontx, fronty);
+		bullet->setSize(0.01);
+		bullet->setRotation(Sprite::getRotation());
+		bullet->setDepth(1.5);
+
+		bullet->setVel(1, 1);
+
+		//Renderer::get()->addObject(bullet);
+	}
 
 
-	bullet->setColor(255, 255, 255);
-	bullet->setPosition(frontx, fronty);
-	bullet->setSize(0.01);
-	bullet->setRotation(Sprite::getRotation());
-	bullet->setDepth(1.5);
-
-	bullet->setName("bullet");
-	bullet->setVel(1, 1);
-
-	Renderer::get()->addObject(bullet);
 }
 
 void TankEnemy::draw() {
