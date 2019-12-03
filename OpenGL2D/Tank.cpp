@@ -15,6 +15,7 @@ Tank::Tank()
 	timer.start();
 	CollisionHandler::get()->addObjectCol(this);
 	bullet = new Bullet();
+	bullet->setName("bullet");
 	Renderer::get()->addObject(bullet);
 }
 
@@ -85,7 +86,7 @@ void Tank::shoot() {
 		bullet->setRotation(Sprite::getRotation());
 		bullet->setDepth(1.5);
 
-		bullet->setName("bullet");
+		
 		bullet->setVel(1, 1);
 		
 		//Renderer::get()->addObject(bullet);

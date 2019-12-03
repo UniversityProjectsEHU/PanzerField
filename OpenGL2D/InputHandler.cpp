@@ -7,10 +7,11 @@
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
 #include <iostream>
 #include <vector>
+#include "TankEnemy.h"
 
 InputHandler* InputHandler::m_pInputHandler = nullptr;
 
-InputHandler::InputHandler(Renderer& renderer): m_renderer(renderer)
+InputHandler::InputHandler(Renderer& renderer) : m_renderer(renderer)
 {
 	m_pInputHandler = this;
 }
@@ -34,7 +35,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	//keyboard callback function
 	switch (key)
 	{
-	    //a
+		//a
 	case 97:
 		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
@@ -45,27 +46,27 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		}
 		break;
 		//w
-	case 119: 
+	case 119:
 		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
-			theTank->setVel(0.5,0.5);
+			theTank->setVel(0.5, 0.5);
 		}
 		break;
 		//s
-	case 115: 
+	case 115:
 		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
-			theTank->setVel(-0.5,-0.5);
+			theTank->setVel(-0.5, -0.5);
 		}
 		break;
 		//d
-	case 100: 
+	case 100:
 		vectorObjects = m_renderer.getObjects("tank1");
 		for each (Drawable* var in vectorObjects)
 		{
@@ -77,6 +78,56 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		break;
 	case 32:
 		vectorObjects = m_renderer.getObjects("tank1");
+		for each (Drawable* var in vectorObjects)
+		{
+			Tank* theTank = (Tank*)var;
+			theTank->shoot();
+		}
+		break;
+		//tank2
+			//1
+	case 49:
+		vectorObjects = m_renderer.getObjects("tank2");
+		for each (Drawable* var in vectorObjects)
+		{
+			Tank* theTank = (Tank*)var;
+			double theRotation = theTank->getRotation();
+			theTank->setVelRotation(100);
+		}
+		break;
+		//5
+	case 53:
+		vectorObjects = m_renderer.getObjects("tank2");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			theTank->setVel(0.5, 0.5);
+		}
+		break;
+		//2
+	case 50:
+		vectorObjects = m_renderer.getObjects("tank2");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			theTank->setVel(-0.5, -0.5);
+		}
+		break;
+		//3
+	case 51:
+		vectorObjects = m_renderer.getObjects("tank2");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			double theRotation = theTank->getRotation();
+			theTank->setVelRotation(-100);
+		}
+		break;
+	case 48:
+		vectorObjects = m_renderer.getObjects("tank2");
 		for each (Drawable* var in vectorObjects)
 		{
 			Tank* theTank = (Tank*)var;
@@ -123,12 +174,57 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		{
 			Sprite* theObject = (Sprite*)var;
 			Tank* theTank = (Tank*)theObject;
-			theTank->setVel(0,0);
+			theTank->setVel(0, 0);
 		}
 		break;
 		//d
 	case 100:
 		vectorObjects = m_renderer.getObjects("tank1");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			double theRotation = theTank->getRotation();
+			theTank->setVelRotation(0);
+
+		}
+		break;
+
+		//tank2
+		//1
+	case 49:
+		vectorObjects = m_renderer.getObjects("tank2");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			double theRotation = theTank->getRotation();
+			theTank->setVelRotation(0);
+		}
+		break;
+		//5
+	case 53:
+		vectorObjects = m_renderer.getObjects("tank2");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			theTank->setVel(0, 0);
+		}
+		break;
+		//2
+	case 50:
+		vectorObjects = m_renderer.getObjects("tank2");
+		for each (Drawable* var in vectorObjects)
+		{
+			Sprite* theObject = (Sprite*)var;
+			Tank* theTank = (Tank*)theObject;
+			theTank->setVel(0, 0);
+		}
+		break;
+		//3
+	case 51:
+		vectorObjects = m_renderer.getObjects("tank2");
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
