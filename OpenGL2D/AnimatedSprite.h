@@ -19,6 +19,6 @@ public:
 	AnimatedSprite(const char* textureFilename, int numImagesX, int numImagesY, bool loop);
 	virtual ~AnimatedSprite();
 
-	virtual void draw(double dt);
+	virtual void draw();
 };
 

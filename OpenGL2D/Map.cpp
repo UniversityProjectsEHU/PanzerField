@@ -68,7 +68,7 @@ void Map::createMap(std::string nameFile)
 }
 void Map::createWallSprite(double xaxis, double yaxis)
 {
-	Sprite* pSprite1 = new Sprite();
+	Sprite* pSprite1 = new Sprite("arbol2.png");
 	pSprite1->setColor(150, 150, 0);
 	pSprite1->setPosition(xaxis, yaxis);
 	pSprite1->setRotation(0.0);
@@ -81,7 +81,7 @@ void Map::createWallSprite(double xaxis, double yaxis)
 
 void Map::createFieldSprite(double xaxis, double yaxis)
 {
-	Sprite* pSprite2 = new Sprite();
+	Sprite* pSprite2 = new Sprite("arbol2.png");
 	pSprite2->setColor(255, 255, 255);
 	pSprite2->setPosition(xaxis, yaxis);
 	pSprite2->setRotation(0.0);

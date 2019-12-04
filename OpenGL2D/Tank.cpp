@@ -10,14 +10,14 @@
 #include "CollisionHandler.h"
 # define M_PI           3.14159265358979323846  /* pi */
 
-Tank::Tank()
+Tank::Tank(string filename): Sprite(filename)
 {
 	timer.start();
 	CollisionHandler::get()->addObjectCol(this);
-	bullet = new Bullet();
+	bullet = new Bullet("bala2.png");
 	bullet->setName("bullet");
 	Renderer::get()->addObject(bullet);
-	TextureManager::getInstance()->create2DTexture("img\tankBLUE.png");
+	TextureManager::getInstance()->create2DTexture("tankBLUE.png");
 }
 
 Tank::~Tank()
@@ -84,12 +84,12 @@ void Tank::shoot() {
 
 		bullet->setColor(255, 255, 255);
 		bullet->setPosition(frontx, fronty);
-		bullet->setSize(0.01);
+		bullet->setSize(0.02);
 		bullet->setRotation(Sprite::getRotation());
 		bullet->setDepth(1.5);
 
 		
-		bullet->setVel(1, 1);
+		bullet->setVel(1.2, 1.2);
 		
 		//Renderer::get()->addObject(bullet);
 	}
@@ -98,10 +98,10 @@ void Tank::shoot() {
 }
 
 void Tank::draw() {
-	TextureManager::getInstance()->useTexture("img\tankBLUE.png");
 	tick();
+	TextureManager::getInstance()->useTexture("tankBLUE.png");
 	//1. Pass the object's color to OpenGL
-	glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
+	//glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
 	//2. Save the current transformation matrix
 	glPushMatrix();
 	//3. Set the transformation matrix of the quad using position, size and angle

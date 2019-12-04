@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include "Sprite.h"
+#include "TextureManager.h"
 #include <iostream>
 
-Sprite::Sprite()
+Sprite::Sprite(string filename)
 {
+	m_filename = filename;
+	TextureManager::getInstance()->create2DTexture(m_filename);
 }
 
 
@@ -95,9 +98,9 @@ string Sprite::getName()
 void Sprite::draw()
 {
 	//TODO:
-
+	TextureManager::getInstance()->useTexture(m_filename);
 	//1. Pass the object's color to OpenGL
-	glColor3f(m_r, m_g, m_b);
+	//glColor3f(m_r, m_g, m_b);
 	//2. Save the current transformation matrix
 	glPushMatrix();
 	//3. Set the transformation matrix of the quad using position, size and angle
@@ -105,11 +108,15 @@ void Sprite::draw()
 	glScalef(m_size, m_size, 1);
 	glRotatef(m_angle, 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	glBegin(GL_POLYGON);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0);
 	glVertex3f(-1, -1, -5);
+	glTexCoord2f(1, 0);
 	glVertex3f(1, -1, -5);
+	glTexCoord2f(1, 1);
 	glVertex3f(1, 1, -5);
-	glVertex3f(-1, 1, -5);
+	glTexCoord2f(0, 1);
+	glVertex3f(-1, 1, -5);;
 	glEnd();
 	//5. Restore the transformation matrix
 	glPopMatrix();

@@ -6,7 +6,7 @@ class Bullet;
 class TankEnemy : public Sprite
 {
 public:
-	TankEnemy();
+	TankEnemy(string filename);
 	~TankEnemy();
 
 	Timer timer;
