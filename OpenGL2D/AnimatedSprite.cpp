@@ -3,8 +3,7 @@
 #include "TextureManager.h"
 #include <string>
 
-AnimatedSprite::AnimatedSprite(const char* textureFilename, int numSubImagesX, int numSubImagesY, bool loop)
-:Sprite(string(""))
+AnimatedSprite::AnimatedSprite(const char* textureFilename, int numSubImagesX, int numSubImagesY, bool loop) : Sprite("")
 {
 	m_dirimg = textureFilename;
 	TextureManager::getInstance()->create3DTexture(textureFilename, numSubImagesX, numSubImagesY,loop);
@@ -17,10 +16,10 @@ AnimatedSprite::~AnimatedSprite()
 
 
 
-void AnimatedSprite::draw(double dt)
+void AnimatedSprite::draw()
 {
 	//0. Calculate what point of the animation [0,1] to show this frame
-	animationPoint += 0.01*dt;
+	animationPoint += 0.01;// *dt;
 
 	//2. Save the current transformation matrix
 	glMatrixMode(GL_MODELVIEW);

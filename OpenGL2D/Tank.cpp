@@ -10,13 +10,14 @@
 #include "CollisionHandler.h"
 # define M_PI           3.14159265358979323846  /* pi */
 
-Tank::Tank()
+Tank::Tank(string filename): Sprite(filename)
 {
 	timer.start();
 	CollisionHandler::get()->addObjectCol(this);
-	bullet = new Bullet();
+	bullet = new Bullet("bala2.png");
 	bullet->setName("bullet");
 	Renderer::get()->addObject(bullet);
+	TextureManager::getInstance()->create2DTexture("tankBLUE.png");
 }
 
 Tank::~Tank()
@@ -72,6 +73,7 @@ void Tank::tick()
 	}
 }
 
+
 void Tank::setVel(double velX, double velY)
 {
 	m_velx = velX;
@@ -86,12 +88,12 @@ void Tank::shoot() {
 
 		bullet->setColor(255, 255, 255);
 		bullet->setPosition(frontx, fronty);
-		bullet->setSize(0.01);
+		bullet->setSize(0.02);
 		bullet->setRotation(Sprite::getRotation());
 		bullet->setDepth(1.5);
 
 		
-		bullet->setVel(1, 1);
+		bullet->setVel(1.2, 1.2);
 		
 		//Renderer::get()->addObject(bullet);
 	}
@@ -101,8 +103,9 @@ void Tank::shoot() {
 
 void Tank::draw() {
 	tick();
+	TextureManager::getInstance()->useTexture("tankBLUE.png");
 	//1. Pass the object's color to OpenGL
-	glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
+	//glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
 	//2. Save the current transformation matrix
 	glPushMatrix();
 	//3. Set the transformation matrix of the quad using position, size and angle
@@ -110,11 +113,14 @@ void Tank::draw() {
 	glScalef(Sprite::getSize(), Sprite::getSize(), 1);
 	glRotatef(Sprite::getRotation(), 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	glBegin(GL_POLYGON);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0);
 	glVertex3f(-1, -1, -5);
+	glTexCoord2f(1, 0);
 	glVertex3f(1, -1, -5);
-	glVertex3f(2, 0, -5);
+	glTexCoord2f(1, 1);
 	glVertex3f(1, 1, -5);
+	glTexCoord2f(0, 1);
 	glVertex3f(-1, 1, -5);
 	glEnd();
 	//5. Restore the transformation matrix

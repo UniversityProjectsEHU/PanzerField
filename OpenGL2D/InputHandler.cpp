@@ -90,7 +90,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		vectorObjects = m_renderer.getObjects("tank2");
 		for each (Drawable* var in vectorObjects)
 		{
-			Tank* theTank = (Tank*)var;
+			TankEnemy* theTank = (TankEnemy*)var;
 			double theRotation = theTank->getRotation();
 			theTank->setVelRotation(100);
 		}
@@ -101,7 +101,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			TankEnemy* theTank = (TankEnemy*)theObject;
 			theTank->setVel(0.5, 0.5);
 		}
 		break;
@@ -111,7 +111,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			TankEnemy* theTank = (TankEnemy*)theObject;
 			theTank->setVel(-0.5, -0.5);
 		}
 		break;
@@ -121,7 +121,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			TankEnemy* theTank = (TankEnemy*)theObject;
 			double theRotation = theTank->getRotation();
 			theTank->setVelRotation(-100);
 		}
@@ -130,7 +130,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		vectorObjects = m_renderer.getObjects("tank2");
 		for each (Drawable* var in vectorObjects)
 		{
-			Tank* theTank = (Tank*)var;
+			TankEnemy* theTank = (TankEnemy*)var;
 			theTank->shoot();
 		}
 		break;
@@ -197,7 +197,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			TankEnemy* theTank = (TankEnemy*)theObject;
 			double theRotation = theTank->getRotation();
 			theTank->setVelRotation(0);
 		}
@@ -208,7 +208,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			TankEnemy* theTank = (TankEnemy*)theObject;
 			theTank->setVel(0, 0);
 		}
 		break;
@@ -218,7 +218,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			TankEnemy* theTank = (TankEnemy*)theObject;
 			theTank->setVel(0, 0);
 		}
 		break;
@@ -228,7 +228,7 @@ void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 		for each (Drawable* var in vectorObjects)
 		{
 			Sprite* theObject = (Sprite*)var;
-			Tank* theTank = (Tank*)theObject;
+			TankEnemy* theTank = (TankEnemy*)theObject;
 			double theRotation = theTank->getRotation();
 			theTank->setVelRotation(0);
 

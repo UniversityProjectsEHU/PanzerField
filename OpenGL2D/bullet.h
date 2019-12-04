@@ -7,7 +7,7 @@ class Sprite;
 class Bullet: public Sprite
 {
 public:
-	Bullet();
+	Bullet(string filename);
 	~Bullet();
 
 	Timer timer;

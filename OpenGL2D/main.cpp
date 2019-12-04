@@ -25,9 +25,9 @@ int main(int argc, char** argv)
 
 
 	//We create a tank
-	Tank *tank = new Tank();
+	Tank *tank = new Tank("tankBLUE.png");
 
-	tank->setColor(255,0,0);
+	//tank->setColor(255,0,0);
 	tank->setPosition(-0.80,0.80);
 	tank->setSize(0.02);
 	tank->setRotation(0);
@@ -38,9 +38,9 @@ int main(int argc, char** argv)
 
 	renderer.addObject(tank);
 	//We create a enemy tank
-	TankEnemy *tank2 = new TankEnemy();
+	TankEnemy *tank2 = new TankEnemy("tankRED.png");
 
-	tank2->setColor(0, 0, 255);
+	//tank2->setColor(0, 0, 255);
 	tank2->setPosition(0.80, -0.80);
 	tank2->setSize(0.02);
 	tank2->setRotation(0);
