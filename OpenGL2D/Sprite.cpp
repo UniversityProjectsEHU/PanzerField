@@ -37,7 +37,6 @@ void Sprite::setRotation(double angle)
 {
 	//This method only updates internally the object's rotation. It still needs to be passed to OpenGL before drawing it
 	m_angle = angle;
-	std::cout << m_angle;
 }
 
 void Sprite::setSize(double size)

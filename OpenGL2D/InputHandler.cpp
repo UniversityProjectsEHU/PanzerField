@@ -30,7 +30,7 @@ void InputHandler::initialize()
 //Actions when the key is down
 void InputHandler::processKeyboard(unsigned char key, int x, int y)
 {
-	std::cout << key;
+	//0std::cout << key;
 	std::vector<Drawable*> vectorObjects;
 	//keyboard callback function
 	switch (key)
