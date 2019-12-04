@@ -19,7 +19,8 @@ class Map: public Drawable
 
 	double m_depth = 1.0; // the renderer draws depths in range [1.0,20.0]
 
-	double m_size = 1.0; //size of the quad
+	double m_sizeX = 1.0; //size of the quad
+	double m_sizeY = 1.0;
 
 	double m_angle = 0.0; //rotation angle
 
@@ -28,11 +29,12 @@ public:
 	void draw();
 	void createWallSprite(double x, double y);
 	void createFieldSprite(double x, double y);
+	void createBorders();
 	void setColor(float r, float g, float b);
 	void setPosition(double x, double y);
 	void setDepth(double depth);
 	void setRotation(double angle);
-	void setSize(double size);
+	void setSizeCoordinates(double sizeX, double sizeY);
 	Map(string namefile);
 	~Map();
 };

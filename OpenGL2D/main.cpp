@@ -28,7 +28,7 @@ int main(int argc, char** argv)
 	Tank *tank = new Tank();
 
 	tank->setColor(255,0,0);
-	tank->setPosition(0,0);
+	tank->setPosition(-0.80,0.80);
 	tank->setSize(0.02);
 	tank->setRotation(0);
 	tank->setDepth(1.5);
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
 	TankEnemy *tank2 = new TankEnemy();
 
 	tank2->setColor(0, 0, 255);
-	tank2->setPosition(0.5, 0);
+	tank2->setPosition(0.80, -0.80);
 	tank2->setSize(0.02);
 	tank2->setRotation(0);
 	tank2->setDepth(1.5);
@@ -56,7 +56,7 @@ int main(int argc, char** argv)
 	std::cin >> character;
 	switch (character) {
 	case '1':
-		cad = "Map6.txt";
+		cad = "Map1.txt";
 		break;
 	case '2':
 		cad = "Map2.txt";

@@ -57,7 +57,7 @@ vector<int> CollisionHandler::handleCollision(string name)
 							double pointy = theObject2->getPositionY();
 							double size2 = theObject2->getSize();
 							double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
-							if (modulocollision < (size1  + size2 ))
+							if (modulocollision < (size1  + size2 )  )
 							{
 								vectorCollisions[0] = 1;
 							}

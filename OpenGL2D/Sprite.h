@@ -11,7 +11,8 @@ class Sprite: public Drawable
 
 	double m_depth = 1.0; // the renderer draws depths in range [1.0,20.0]
 
-	double m_size= 1.0; //size of the quad
+	double m_sizeX = 1.0; //size of the quad
+	double m_sizeY = 1.0; //size of the quad
 
 	double m_angle= 0.0; //rotation angle
 
@@ -26,6 +27,7 @@ public:
 	void setDepth(double depth);
 	void setRotation(double angle);
 	void setSize(double size);
+	void setSizeCoordinates(double sizeX, double sizeY);
 	double getPositionX();
 	double getPositionY();
     double getRotation();
@@ -33,6 +35,8 @@ public:
 	float getGreen();
 	float getBlue();
 	double getSize();
+	double getSizeX();
+	double getSizeY();
 	double getDepth();
 	
 	string getName();

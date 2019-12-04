@@ -33,6 +33,11 @@ void Bullet::tick()
 	//double newY = Sprite::getPositionY() + (vectory * timeElapsed*m_vely);
 	double newX = Sprite::getPositionX() + (vectorx * timeElapsed*m_velx);
 	double newY = Sprite::getPositionY() +(vectory * timeElapsed*m_vely);
+	if (newX >= 0.89 || newX <= -0.89 || newY <= -0.89 || newY >= 0.89) {
+		newX = oldX;
+		newY = oldY;
+		isalive = false;
+	}
 	Sprite::setPosition(newX, newY);
 	//Collisions
 	std::vector<int> collisions;

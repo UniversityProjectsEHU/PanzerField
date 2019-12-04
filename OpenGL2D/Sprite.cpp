@@ -38,11 +38,16 @@ void Sprite::setRotation(double angle)
 	//This method only updates internally the object's rotation. It still needs to be passed to OpenGL before drawing it
 	m_angle = angle;
 }
-
 void Sprite::setSize(double size)
 {
+	m_sizeX = size;
+	m_sizeY = size;
+}
+void Sprite::setSizeCoordinates(double sizeX, double sizeY)
+{
 	//This method only updates internally the object's size. It still needs to be passed to OpenGL before drawing it
-	m_size=size;
+	m_sizeX = sizeX;
+	m_sizeY = sizeY;
 }
 
 double Sprite::getPositionX()
@@ -74,10 +79,21 @@ float Sprite::getBlue()
 {
 	return m_b;
 }
-
 double Sprite::getSize()
 {
-	return m_size;
+	if (m_sizeX >= m_sizeY)
+		return m_sizeX;
+	else {
+		return m_sizeY;
+	}
+}
+double Sprite::getSizeX()
+{
+	return m_sizeX;
+}
+double Sprite::getSizeY()
+{
+	return m_sizeY;
 }
 double Sprite::getDepth()
 {
@@ -102,7 +118,12 @@ void Sprite::draw()
 	glPushMatrix();
 	//3. Set the transformation matrix of the quad using position, size and angle
 	glTranslatef(m_x,m_y,m_depth);
-	glScalef(m_size, m_size, 1);
+	if (m_name=="wall" || m_name=="border") {
+		glScalef(m_sizeX, m_sizeY, 1);
+	}
+	else {
+		glScalef(m_sizeX, m_sizeY, 1);
+	}
 	glRotatef(m_angle, 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
 	glBegin(GL_POLYGON);

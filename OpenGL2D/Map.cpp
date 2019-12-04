@@ -37,7 +37,8 @@ void Map::createMap(std::string nameFile)
 		inputFile >> delimiter;
 		inputFile >> m_width;
 		m_map = vector<char>(m_height*m_width);
-		while (!inputFile.eof()) 
+		createBorders(); 
+		while (!inputFile.eof())
 		{
 			inputFile.get(character);
 			if (character == '"')
@@ -72,7 +73,7 @@ void Map::createWallSprite(double xaxis, double yaxis)
 	pSprite1->setColor(150, 150, 0);
 	pSprite1->setPosition(xaxis, yaxis);
 	pSprite1->setRotation(0.0);
-	pSprite1->setSize(0.1);
+	pSprite1->setSizeCoordinates(0.05,0.05);
 	pSprite1->setDepth(1.5);
 	pSprite1->setName("wall");
 	Renderer::get()->addObject(pSprite1);
@@ -85,9 +86,56 @@ void Map::createFieldSprite(double xaxis, double yaxis)
 	pSprite2->setColor(255, 255, 255);
 	pSprite2->setPosition(xaxis, yaxis);
 	pSprite2->setRotation(0.0);
-	pSprite2->setSize(0.1);
+	pSprite2->setSizeCoordinates(0.1,0.1);
 	pSprite2->setDepth(1.5);
 	Renderer::get()->addObject(pSprite2);
+}
+
+void Map::createBorders()
+{
+	//North border
+	Sprite* pSprite3 = new Sprite();
+	pSprite3->setColor(150, 150, 0);
+	pSprite3->setPosition(-1,1);
+	pSprite3->setRotation(0.0);
+	pSprite3->setSizeCoordinates(2, 0.1);
+	pSprite3->setDepth(1.5);
+	pSprite3->setName("border");
+	Renderer::get()->addObject(pSprite3);
+	CollisionHandler::get()->addObjectCol(pSprite3);
+
+	//East border
+	Sprite* pSprite4 = new Sprite();
+	pSprite4->setColor(150, 150, 0);
+	pSprite4->setPosition(1, 1);
+	pSprite4->setRotation(0.0);
+	pSprite4->setSizeCoordinates(0.1, 2);
+	pSprite4->setDepth(1.5);
+	pSprite4->setName("border");
+	Renderer::get()->addObject(pSprite4);
+	CollisionHandler::get()->addObjectCol(pSprite4);
+
+	//West border
+	Sprite* pSprite5 = new Sprite();
+	pSprite5->setColor(150, 150, 0);
+	pSprite5->setPosition(-1, 1);
+	pSprite5->setRotation(0.0);
+	pSprite5->setSizeCoordinates(0.1, 2);
+	pSprite5->setDepth(1.5);
+	pSprite5->setName("border");
+	Renderer::get()->addObject(pSprite5);
+	CollisionHandler::get()->addObjectCol(pSprite5);
+
+	//South border
+	Sprite* pSprite6 = new Sprite();
+	pSprite6->setColor(150, 150, 0);
+	pSprite6->setPosition(-1, -1);
+	pSprite6->setRotation(0.0);
+	pSprite6->setSizeCoordinates(2, 0.1);
+	pSprite6->setDepth(1.5);
+	pSprite6->setName("border");
+	Renderer::get()->addObject(pSprite6);
+	CollisionHandler::get()->addObjectCol(pSprite6);
 }
 
 void Map::setColor(float r, float g, float b)
@@ -118,10 +166,11 @@ void Map::setRotation(double angle)
 	m_angle = angle;
 }
 
-void Map::setSize(double size)
+void Map::setSizeCoordinates(double sizeX, double sizeY)
 {
 	//This method only updates internally the object's size. It still needs to be passed to OpenGL before drawing it
-	m_size = size;
+	m_sizeX = sizeX;
+	m_sizeY = sizeY;
 }
 void Map::draw()
 {
@@ -131,7 +180,7 @@ void Map::draw()
 	glPushMatrix();
 	
 	glTranslatef(m_x, m_y, m_depth);
-	glScalef(m_size, m_size, 1);
+	glScalef(m_sizeX, m_sizeY, 1);
 	glRotatef(m_angle, 0, 0, 1);
 	
 	glBegin(GL_QUADS);

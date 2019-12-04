@@ -37,6 +37,10 @@ void Tank::tick()
 	double vectory = sin(radianes);
 	double newX = Sprite::getPositionX()+(vectorx * timeElapsed*m_velx);
 	double newY = Sprite::getPositionY()+(vectory * timeElapsed*m_vely);
+	if (newX >= 0.88 || newX <= -0.88 || newY <= -0.88 || newY >= 0.88) {
+		newX = oldX;
+		newY = oldY;
+	}
 	//Position in front of tank
 	frontx = Sprite::getPositionX() + (vectorx  *0.05);
 	fronty = Sprite::getPositionY() + (vectory *0.05);
