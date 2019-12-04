@@ -88,7 +88,7 @@ void Tank::shoot() {
 
 		bullet->setColor(255, 255, 255);
 		bullet->setPosition(frontx, fronty);
-		bullet->setSize(0.02);
+		bullet->setSize(0.01);
 		bullet->setRotation(Sprite::getRotation());
 		bullet->setDepth(1.5);
 

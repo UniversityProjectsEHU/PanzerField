@@ -94,7 +94,7 @@ void Map::createFieldSprite(double xaxis, double yaxis)
 void Map::createBorders()
 {
 	//North border
-	Sprite* pSprite3 = new Sprite();
+	Sprite* pSprite3 = new Sprite("arbol2.png");
 	pSprite3->setColor(150, 150, 0);
 	pSprite3->setPosition(-1,1);
 	pSprite3->setRotation(0.0);
@@ -105,7 +105,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite3);
 
 	//East border
-	Sprite* pSprite4 = new Sprite();
+	Sprite* pSprite4 = new Sprite("arbol2.png");
 	pSprite4->setColor(150, 150, 0);
 	pSprite4->setPosition(1, 1);
 	pSprite4->setRotation(0.0);
@@ -116,7 +116,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite4);
 
 	//West border
-	Sprite* pSprite5 = new Sprite();
+	Sprite* pSprite5 = new Sprite("arbol2.png");
 	pSprite5->setColor(150, 150, 0);
 	pSprite5->setPosition(-1, 1);
 	pSprite5->setRotation(0.0);
@@ -127,7 +127,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite5);
 
 	//South border
-	Sprite* pSprite6 = new Sprite();
+	Sprite* pSprite6 = new Sprite("arbol2.png");
 	pSprite6->setColor(150, 150, 0);
 	pSprite6->setPosition(-1, -1);
 	pSprite6->setRotation(0.0);

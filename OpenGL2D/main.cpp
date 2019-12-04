@@ -29,7 +29,7 @@ int main(int argc, char** argv)
 
 	//tank->setColor(255,0,0);
 	tank->setPosition(-0.80,0.80);
-	tank->setSize(0.02);
+	tank->setSize(0.08);
 	tank->setRotation(0);
 	tank->setDepth(1.5);
 
@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 
 	//tank2->setColor(0, 0, 255);
 	tank2->setPosition(0.80, -0.80);
-	tank2->setSize(0.02);
+	tank2->setSize(0.08);
 	tank2->setRotation(0);
 	tank2->setDepth(1.5);
 

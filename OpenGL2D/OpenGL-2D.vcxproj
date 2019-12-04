@@ -54,6 +54,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -65,9 +66,11 @@
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="TankEnemy.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Map.h" />
@@ -80,6 +83,7 @@
     <ClInclude Include="TankEnemy.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
