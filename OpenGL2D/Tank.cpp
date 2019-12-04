@@ -17,6 +17,7 @@ Tank::Tank()
 	bullet = new Bullet();
 	bullet->setName("bullet");
 	Renderer::get()->addObject(bullet);
+	TextureManager::getInstance()->create2DTexture("img\tankBLUE.png");
 }
 
 Tank::~Tank()
@@ -68,6 +69,7 @@ void Tank::tick()
 	}
 }
 
+
 void Tank::setVel(double velX, double velY)
 {
 	m_velx = velX;
@@ -96,6 +98,7 @@ void Tank::shoot() {
 }
 
 void Tank::draw() {
+	TextureManager::getInstance()->useTexture("img\tankBLUE.png");
 	tick();
 	//1. Pass the object's color to OpenGL
 	glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
@@ -106,11 +109,14 @@ void Tank::draw() {
 	glScalef(Sprite::getSize(), Sprite::getSize(), 1);
 	glRotatef(Sprite::getRotation(), 0, 0, 1);
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	glBegin(GL_POLYGON);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0);
 	glVertex3f(-1, -1, -5);
+	glTexCoord2f(1, 0);
 	glVertex3f(1, -1, -5);
-	glVertex3f(2, 0, -5);
+	glTexCoord2f(1, 1);
 	glVertex3f(1, 1, -5);
+	glTexCoord2f(0, 1);
 	glVertex3f(-1, 1, -5);
 	glEnd();
 	//5. Restore the transformation matrix

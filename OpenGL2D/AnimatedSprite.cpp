@@ -4,7 +4,6 @@
 #include <string>
 
 AnimatedSprite::AnimatedSprite(const char* textureFilename, int numSubImagesX, int numSubImagesY, bool loop)
-:Sprite(string(""))
 {
 	m_dirimg = textureFilename;
 	TextureManager::getInstance()->create3DTexture(textureFilename, numSubImagesX, numSubImagesY,loop);

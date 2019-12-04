@@ -3,6 +3,7 @@
 class Drawable;
 #include <vector>
 #include "Sprite.h"
+#include "TextureManager.h"
 using namespace std;
 
 class Renderer
@@ -18,6 +19,7 @@ public:
 	Renderer();
 	~Renderer();
 
+	TextureManager managerTexture;
 	void initialize(int argc, char** argv);
 	vector<Drawable> getVector();
 	static Renderer* get(); //this method returns the only instance to the renderer. Needs to be called after the constructor
