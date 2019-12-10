@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include <math.h>
 #include "Drawable.h"
+#include "bullet.h"
 
 CollisionHandler* CollisionHandler::m_pCollision= nullptr;
 
@@ -67,14 +68,40 @@ vector<int> CollisionHandler::handleCollision(string name)
 				
 					if (pointobject == "bullet")
 					{
-						double pointx = theObject2->getPositionX();
-						double pointy = theObject2->getPositionY();
-						double size2 = theObject2->getSize();
-						double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
-						if (modulocollision < (size1 / 2 + size2 / 2))
+						Bullet *theObject3 = (Bullet*)var;
+						bool alive = theObject3->isalive;
+						if (alive)
 						{
-							vectorCollisions[1] = 1;
+							double pointx = theObject2->getPositionX();
+							double pointy = theObject2->getPositionY();
+							double size2 = theObject2->getSize();
+							double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
+							if (modulocollision < (size1 / 2 + size2 / 2))
+							{
+								vectorCollisions[1] = 1;
+							}
 						}
+
+						
+
+					}
+					if (pointobject == "bullet2")
+					{
+						Bullet *theObject3 = (Bullet*)var;
+						bool alive = theObject3->isalive;
+						if (alive)
+						{
+							double pointx = theObject2->getPositionX();
+							double pointy = theObject2->getPositionY();
+							double size2 = theObject2->getSize();
+							double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
+							if (modulocollision < (size1 / 2 + size2 / 2))
+							{
+								vectorCollisions[1] = 1;
+							}
+						}
+
+
 
 					}
 					if (pointobject == "tank1")

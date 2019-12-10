@@ -45,11 +45,11 @@ void Bullet::tick()
 	collisions = CollisionHandler::get()->handleCollision(name);
 	if (collisions[2] == 1) //Collision with tank1
 	{
-		Renderer::get()->clearAll();
+		//Renderer::get()->clearAll();
 	}
 	else if (collisions[3] == 1) //Collision with tank2
 	{
-		Renderer::get()->clearAll();
+		//Renderer::get()->clearAll();
 	}
 	if (collisions[0] == 1) //Collision with wall
 	{
