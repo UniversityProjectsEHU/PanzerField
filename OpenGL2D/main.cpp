@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 	//tank2->setColor(0, 0, 255);
 	tank2->setPosition(0.80, -0.80);
 	tank2->setSize(0.08);
-	tank2->setRotation(0);
+	tank2->setRotation(180);
 	tank2->setDepth(1.5);
 
 	tank2->setName("tank2");
