@@ -28,6 +28,8 @@ public:
 	void createMap(string nameFile);
 	void draw();
 	void createWallSprite(double x, double y);
+	void createDecorationSprite(double x, double y);
+	void createTreeSprite(double x, double y);
 	void createFieldSprite(double x, double y);
 	void createBorders();
 	void setColor(float r, float g, float b);
