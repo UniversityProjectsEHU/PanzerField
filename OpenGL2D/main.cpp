@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 	renderer.addObject(tank2);
 	char character;
 	string cad;
-	std::cout << "Please press a number from 1 to 5\n";
+	std::cout << "Please press a number from 1 to 6\n";
 	std::cin >> character;
 	switch (character) {
 	case '1':
@@ -69,6 +69,9 @@ int main(int argc, char** argv)
 		break;
 	case '5':
 		cad = "Map5.txt";
+		break;
+	case '6':
+		cad = "Map6.txt";
 		break;
 	}
 	Map map(cad);
