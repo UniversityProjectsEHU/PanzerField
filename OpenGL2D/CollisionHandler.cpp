@@ -72,6 +72,17 @@ vector<int> CollisionHandler::handleCollision(string name)
 						bool alive = theObject3->isalive;
 						if (alive)
 						{
+							if (namecollision == "tank2")
+							{
+								double pointx = theObject2->getPositionX();
+								double pointy = theObject2->getPositionY();
+								double size2 = theObject2->getSize();
+								double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
+								if (modulocollision < 0.05 + (size1 / 2 + size2 / 2))
+								{
+									vectorCollisions[1] = 1;
+								}
+							}
 							double pointx = theObject2->getPositionX();
 							double pointy = theObject2->getPositionY();
 							double size2 = theObject2->getSize();
@@ -91,14 +102,29 @@ vector<int> CollisionHandler::handleCollision(string name)
 						bool alive = theObject3->isalive;
 						if (alive)
 						{
-							double pointx = theObject2->getPositionX();
-							double pointy = theObject2->getPositionY();
-							double size2 = theObject2->getSize();
-							double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
-							if (modulocollision < (size1 / 2 + size2 / 2))
+							if (namecollision == "tank1" )
 							{
-								vectorCollisions[1] = 1;
+								double pointx = theObject2->getPositionX();
+								double pointy = theObject2->getPositionY();
+								double size2 = theObject2->getSize();
+								double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
+								if (modulocollision < 0.05+(size1 / 2 + size2 / 2))
+								{
+									vectorCollisions[1] = 1;
+								}
 							}
+							else
+							{
+								double pointx = theObject2->getPositionX();
+								double pointy = theObject2->getPositionY();
+								double size2 = theObject2->getSize();
+								double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
+								if (modulocollision < (size1 / 2 + size2 / 2))
+								{
+									vectorCollisions[1] = 1;
+								}
+							}
+							
 						}
 
 
