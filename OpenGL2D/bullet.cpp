@@ -43,14 +43,7 @@ void Bullet::tick()
 	std::vector<int> collisions;
 	string name = Sprite::getName();
 	collisions = CollisionHandler::get()->handleCollision(name);
-	if (collisions[2] == 1) //Collision with tank1
-	{
-		//Renderer::get()->clearAll();
-	}
-	else if (collisions[3] == 1) //Collision with tank2
-	{
-		//Renderer::get()->clearAll();
-	}
+	
 	if (collisions[0] == 1) //Collision with wall
 	{
 		//Renderer::get()->deleteObject(this);
