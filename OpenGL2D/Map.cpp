@@ -51,6 +51,14 @@ void Map::createMap(std::string nameFile)
 						createWallSprite(i, j);
 						i = i + 0.1;
 					}
+					else if (character == 'T') {
+						createTreeSprite(i, j);
+						i = i + 0.1;
+					}
+					if (character == 'D') {
+						createDecorationSprite(i, j);
+						i = i + 0.1;
+					}
 					else if (character == '0') {
 						//createFieldSprite(i, j);
 						i = i + 0.1;
@@ -69,7 +77,7 @@ void Map::createMap(std::string nameFile)
 }
 void Map::createWallSprite(double xaxis, double yaxis)
 {
-	Sprite* pSprite1 = new Sprite("arbol2.png");
+	Sprite* pSprite1 = new Sprite("cajaMadera.png");
 	pSprite1->setColor(150, 150, 0);
 	pSprite1->setPosition(xaxis, yaxis);
 	pSprite1->setRotation(0.0);
@@ -80,9 +88,35 @@ void Map::createWallSprite(double xaxis, double yaxis)
 	CollisionHandler::get()->addObjectCol(pSprite1);
 }
 
+void Map::createDecorationSprite(double xaxis, double yaxis)
+{
+	Sprite* pSprite1 = new Sprite("palos1.png");
+	pSprite1->setColor(150, 150, 0);
+	pSprite1->setPosition(xaxis, yaxis);
+	pSprite1->setRotation(0.0);
+	pSprite1->setSizeCoordinates(0.05, 0.05);
+	pSprite1->setDepth(1.5);
+	pSprite1->setName("decoration");
+	Renderer::get()->addObject(pSprite1);
+	CollisionHandler::get()->addObjectCol(pSprite1);
+}
+
+void Map::createTreeSprite(double xaxis, double yaxis)
+{
+	Sprite* pSprite1 = new Sprite("arbol2.png");
+	pSprite1->setColor(150, 150, 0);
+	pSprite1->setPosition(xaxis, yaxis);
+	pSprite1->setRotation(0.0);
+	pSprite1->setSizeCoordinates(0.05, 0.05);
+	pSprite1->setDepth(1.5);
+	pSprite1->setName("wall");
+	Renderer::get()->addObject(pSprite1);
+	CollisionHandler::get()->addObjectCol(pSprite1);
+}
+
 void Map::createFieldSprite(double xaxis, double yaxis)
 {
-	Sprite* pSprite2 = new Sprite("arbol2.png");
+	Sprite* pSprite2 = new Sprite("6arboles.png");
 	pSprite2->setColor(255, 255, 255);
 	pSprite2->setPosition(xaxis, yaxis);
 	pSprite2->setRotation(0.0);
@@ -93,8 +127,19 @@ void Map::createFieldSprite(double xaxis, double yaxis)
 
 void Map::createBorders()
 {
+	//Background
+	Sprite* pSprite7 = new Sprite("hierba.png");
+	pSprite7->setColor(150, 150, 0);
+	pSprite7->setPosition(0, 0);
+	pSprite7->setRotation(0.0);
+	pSprite7->setSizeCoordinates(10, 10);
+	pSprite7->setDepth(1);
+	pSprite7->setName("background");
+	Renderer::get()->addObject(pSprite7);
+	CollisionHandler::get()->addObjectCol(pSprite7);
+
 	//North border
-	Sprite* pSprite3 = new Sprite("arbol2.png");
+	Sprite* pSprite3 = new Sprite("fondoAgua.png");
 	pSprite3->setColor(150, 150, 0);
 	pSprite3->setPosition(-1,1);
 	pSprite3->setRotation(0.0);
@@ -105,7 +150,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite3);
 
 	//East border
-	Sprite* pSprite4 = new Sprite("arbol2.png");
+	Sprite* pSprite4 = new Sprite("fondoAgua.png");
 	pSprite4->setColor(150, 150, 0);
 	pSprite4->setPosition(1, 1);
 	pSprite4->setRotation(0.0);
@@ -116,7 +161,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite4);
 
 	//West border
-	Sprite* pSprite5 = new Sprite("arbol2.png");
+	Sprite* pSprite5 = new Sprite("fondoAgua.png");
 	pSprite5->setColor(150, 150, 0);
 	pSprite5->setPosition(-1, 1);
 	pSprite5->setRotation(0.0);
@@ -127,7 +172,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite5);
 
 	//South border
-	Sprite* pSprite6 = new Sprite("arbol2.png");
+	Sprite* pSprite6 = new Sprite("fondoAgua.png");
 	pSprite6->setColor(150, 150, 0);
 	pSprite6->setPosition(-1, -1);
 	pSprite6->setRotation(0.0);
