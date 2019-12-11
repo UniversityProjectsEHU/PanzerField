@@ -69,23 +69,23 @@ int main(int argc, char** argv)
 			break;
 		case 2:
 			renderer.erase();
-			renderer.addObject(level1);
+			renderer.addObject(level2);
 			break;
 		case 3:
 			renderer.erase();
-			renderer.addObject(level1);
+			renderer.addObject(level3);
 			break;
 		case 4:
 			renderer.erase();
-			renderer.addObject(level1);
+			renderer.addObject(level4);
 			break;
 		case 5:
 			renderer.erase();
-			renderer.addObject(level1);
+			renderer.addObject(level5);
 			break;
 		case 6:
 			renderer.erase();
-			renderer.addObject(level1);
+			renderer.addObject(level6);
 			break;
 		
 		}

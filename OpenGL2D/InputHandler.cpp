@@ -169,7 +169,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 54:
 		if (menu)
 		{
-			level = 4;
+			level = 6;
 		}
 
 		break;
