@@ -17,7 +17,7 @@ TankEnemy::TankEnemy(string filename) : Sprite(filename)
 	bullet = new Bullet("bala2.png");
 	bullet->setName("bullet2");
 	Renderer::get()->addObject(bullet);
-	TextureManager::getInstance()->create2DTexture("tankRED.png");
+	TextureManager::getInstance()->create2DTexture("tankREDv2.png");
 }
 
 TankEnemy::~TankEnemy()
@@ -100,7 +100,7 @@ void TankEnemy::shoot() {
 
 void TankEnemy::draw() {
 	tick();
-	TextureManager::getInstance()->useTexture("tankRED.png");
+	TextureManager::getInstance()->useTexture("tankREDv2.png");
 	//1. Pass the object's color to OpenGL
 	//glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
 	//2. Save the current transformation matrix
