@@ -14,6 +14,7 @@ InputHandler* InputHandler::m_pInputHandler = nullptr;
 InputHandler::InputHandler(Renderer& renderer) : m_renderer(renderer)
 {
 	m_pInputHandler = this;
+
 }
 
 
@@ -87,45 +88,92 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		//tank2
 			//1
 	case 49:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			TankEnemy* theTank = (TankEnemy*)var;
-			double theRotation = theTank->getRotation();
-			theTank->setVelRotation(100);
+			level = 1;
+		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				TankEnemy* theTank = (TankEnemy*)var;
+				double theRotation = theTank->getRotation();
+				theTank->setVelRotation(100);
+			}
 		}
 		break;
 		//5
 	case 53:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			Sprite* theObject = (Sprite*)var;
-			TankEnemy* theTank = (TankEnemy*)theObject;
-			theTank->setVel(0.5, 0.5);
+			level = 5;
+		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				Sprite* theObject = (Sprite*)var;
+				TankEnemy* theTank = (TankEnemy*)theObject;
+				theTank->setVel(0.5, 0.5);
+			}
 		}
 		break;
 		//2
 	case 50:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			Sprite* theObject = (Sprite*)var;
-			TankEnemy* theTank = (TankEnemy*)theObject;
-			theTank->setVel(-0.5, -0.5);
+			level = 2;
 		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				Sprite* theObject = (Sprite*)var;
+				TankEnemy* theTank = (TankEnemy*)theObject;
+				theTank->setVel(-0.5, -0.5);
+			}
+		}
+		
 		break;
 		//3
 	case 51:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			Sprite* theObject = (Sprite*)var;
-			TankEnemy* theTank = (TankEnemy*)theObject;
-			double theRotation = theTank->getRotation();
-			theTank->setVelRotation(-100);
+			level = 3;
 		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				Sprite* theObject = (Sprite*)var;
+				TankEnemy* theTank = (TankEnemy*)theObject;
+				double theRotation = theTank->getRotation();
+				theTank->setVelRotation(-100);
+			}
+		}
+		
 		break;
+		//4
+	case 52:
+		if (menu)
+		{
+			level = 4;
+		}
+
+		break;
+		//6
+	case 54:
+		if (menu)
+		{
+			level = 4;
+		}
+
+		break;
+		//0
 	case 48:
 		vectorObjects = m_renderer.getObjects("tank2");
 		for each (Drawable* var in vectorObjects)
@@ -133,6 +181,13 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 			TankEnemy* theTank = (TankEnemy*)var;
 			theTank->shoot();
 		}
+		break;
+	case 13:
+		if (level != 0)
+		{
+			menu = false;
+		}
+		
 		break;
 	case 27: exit(0);
 	}

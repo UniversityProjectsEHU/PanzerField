@@ -82,9 +82,9 @@ void Renderer::reshapeWindow(int w, int h)
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 }
 
-void Renderer::erase(Drawable * obj)
+void Renderer::erase()
 {
-
+	m_objects2D.clear();
 }
 
 void Renderer::addObject(Drawable* pObj)
@@ -95,7 +95,7 @@ void Renderer::addObject(Drawable* pObj)
 void Renderer::clearAll() 
 {
 	exit(1);
-	//m_objects2D.clear();
+	
 }
 
 void Renderer::drawScene()
