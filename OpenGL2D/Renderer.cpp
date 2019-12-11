@@ -99,7 +99,7 @@ void Renderer::addObject(Drawable* pObj)
 void Renderer::clearAll() 
 {
 	exit(1);
-	//m_objects2D.clear();
+	
 }
 
 void Renderer::drawScene()
