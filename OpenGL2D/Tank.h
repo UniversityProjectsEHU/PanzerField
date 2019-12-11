@@ -17,12 +17,16 @@ public:
 	double frontx;
 	double fronty;
 	Bullet *bullet;
+	bool isAlive;
+	
 
 
 	void tick();
 	void draw();
 	void setVel(double velX, double velY);
 	void setVelRotation(double velRotation);
+	bool getIsAlive();
+	void setIsAlive(bool live);
 
 
 

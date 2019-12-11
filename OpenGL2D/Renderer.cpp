@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "Renderer.h"
 #include "Drawable.h"
+
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
+
 #include "Sprite.h"
 
 Renderer* Renderer::m_pRenderer = nullptr;
@@ -44,9 +46,11 @@ void Renderer::initialize(int argc, char** argv)
 	////////////////////////////////
 	//init window and OpenGL context
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(800, 800);
 	glutCreateWindow(argv[0]);
+
+	glewInit();
 	
 	//OpenGL global initializations
 	glEnable(GL_DEPTH_TEST);
@@ -82,9 +86,9 @@ void Renderer::reshapeWindow(int w, int h)
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 }
 
-void Renderer::erase(Drawable * obj)
+void Renderer::erase()
 {
-
+	m_objects2D.clear();
 }
 
 void Renderer::addObject(Drawable* pObj)

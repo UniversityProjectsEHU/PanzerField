@@ -17,6 +17,7 @@ Tank::Tank(string filename): Sprite(filename)
 	bullet = new Bullet("bala2.png");
 	bullet->setName("bullet");
 	Renderer::get()->addObject(bullet);
+	isAlive = true;
 	TextureManager::getInstance()->create2DTexture("tankBLUEv2.png");
 }
 
@@ -51,8 +52,8 @@ void Tank::tick()
 	string name = Sprite::getName();
 	collisions = CollisionHandler::get()->handleCollision(name);
 	if (collisions[1]==1) { //Collision with bullet
-
-		Renderer::get()->clearAll();
+		//Renderer::get()->clearAll();
+		isAlive = false;
 	}
 	else if (collisions[0] == 1) //Collision with wall
 	{
@@ -130,6 +131,16 @@ void Tank::draw() {
 void Tank::setVelRotation(double velRotation)
 {
 	m_velrotation = velRotation;
+}
+
+bool Tank::getIsAlive()
+{
+	return isAlive;
+}
+
+void Tank::setIsAlive(bool live)
+{
+	isAlive = live;
 }
 
 

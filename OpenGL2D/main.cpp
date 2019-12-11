@@ -35,6 +35,7 @@ int main(int argc, char** argv)
 
 	tank->setName("tank1");
 	tank->setVel(0,0);
+	tank->setIsAlive(true);
 
 	renderer.addObject(tank);
 	//We create a enemy tank
@@ -48,6 +49,7 @@ int main(int argc, char** argv)
 
 	tank2->setName("tank2");
 	tank2->setVel(0, 0);
+	tank2->setIsAlive(true);
 
 	renderer.addObject(tank2);
 	char character;
@@ -75,8 +77,35 @@ int main(int argc, char** argv)
 		break;
 	}
 	Map map(cad);
+	
 	while (1)
 	{
+		if (tank->getIsAlive()==false) {
+			renderer.erase();
+			tank->setIsAlive(true);
+			tank2->setIsAlive(true);
+			Sprite* spriteRED = new Sprite("tankREDwinner.png");
+			spriteRED->setColor(150, 150, 0);
+			spriteRED->setPosition(0, 0);
+			spriteRED->setRotation(0.0);
+			spriteRED->setSizeCoordinates(1, 1);
+			spriteRED->setDepth(1);
+			spriteRED->setName("final");
+			Renderer::get()->addObject(spriteRED);
+		}
+		else if (tank2->getIsAlive() == false) {
+			renderer.erase();
+			tank->setIsAlive(true);
+			tank2->setIsAlive(true);
+			Sprite* spriteBlue = new Sprite("tankBLUEwinner.png");
+			spriteBlue->setColor(150, 150, 0);
+			spriteBlue->setPosition(0, 0);
+			spriteBlue->setRotation(0.0);
+			spriteBlue->setSizeCoordinates(1, 1);
+			spriteBlue->setDepth(1);
+			spriteBlue->setName("final");
+			Renderer::get()->addObject(spriteBlue);
+		}
 		//UPDATE////////////////////
 		////////////////////////////
 		//process queued events
