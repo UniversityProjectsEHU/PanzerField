@@ -9,7 +9,6 @@ public:
 	Tank(string filename);
 	~Tank();
 
-	string m_filename;
 	Timer timer;
 	double m_velx;
 	double m_vely;

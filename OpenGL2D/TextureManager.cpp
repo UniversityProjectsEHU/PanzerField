@@ -23,7 +23,7 @@ void TextureObject::set()
 	if (m_type == GL_TEXTURE_2D)
 	{
 		glEnable(GL_TEXTURE_2D);
-		glDisable(GL_TEXTURE_3D);
+		//glDisable(GL_TEXTURE_3D);
 		glBindTexture(GL_TEXTURE_2D, m_textureId);
 	}
 	else
@@ -69,18 +69,10 @@ unsigned int TextureManager::create2DTexture(string filename)
 	if (m_bVerbose)
 		cout << "Loading texture " << filename.c_str();
 	unsigned int id = SOIL_load_OGL_texture(filename.c_str(), 0, 0, 0);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-	
-
-	glTexEnvi(GL_TEXTURE_2D, GL_TEXTURE_ENV_MODE, GL_DECAL);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_TEXTURE_3D);
+	//glDisable(GL_TEXTURE_3D);
 	glEnable(GL_TEXTURE_2D);
 
 	if (m_bVerbose)
@@ -160,7 +152,7 @@ unsigned int TextureManager::create3DTexture(string filename, int numSubImagesX,
 		else
 			glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_REPEAT);
 
-		glTexEnvi(GL_TEXTURE_3D, GL_TEXTURE_ENV_MODE, GL_DECAL);
+		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glDisable(GL_TEXTURE_3D);

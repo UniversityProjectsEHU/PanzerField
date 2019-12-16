@@ -24,34 +24,7 @@ int main(int argc, char** argv)
 	inputHandler.initialize();
 
 
-	//We create a tank
-	Tank *tank = new Tank("tankBLUEv2.png");
-
-	//tank->setColor(255,0,0);
-	tank->setPosition(-0.80,0.80);
-	tank->setSize(0.08);
-	tank->setRotation(0);
-	tank->setDepth(1.5);
-
-	tank->setName("tank1");
-	tank->setVel(0,0);
-	tank->setIsAlive(true);
-
-	renderer.addObject(tank);
-	//We create a enemy tank
-	TankEnemy *tank2 = new TankEnemy("tankREDv2.png");
-
-	//tank2->setColor(0, 0, 255);
-	tank2->setPosition(0.80, -0.80);
-	tank2->setSize(0.08);
-	tank2->setRotation(180);
-	tank2->setDepth(1.5);
-
-	tank2->setName("tank2");
-	tank2->setVel(0, 0);
-	tank2->setIsAlive(true);
-
-	renderer.addObject(tank2);
+	
 	char character;
 	string cad;
 	std::cout << "Please press a number from 1 to 6\n";
@@ -76,7 +49,36 @@ int main(int argc, char** argv)
 		cad = "Map6.txt";
 		break;
 	}
-	Map map(cad);
+	Map map("Map2.txt");
+
+	//We create a tank
+	Tank *tank = new Tank("tankBLUE.png");
+
+	//tank->setColor(255,0,0);
+	tank->setPosition(-0.80, 0.80);
+	tank->setSize(0.08);
+	tank->setRotation(0);
+	tank->setDepth(1.5);
+
+	tank->setName("tank1");
+	tank->setVel(0, 0);
+	tank->setIsAlive(true);
+
+	renderer.addObject(tank);
+	//We create a enemy tank
+	TankEnemy *tank2 = new TankEnemy("tankRED.png");
+
+	//tank2->setColor(0, 0, 255);
+	tank2->setPosition(0.80, -0.80);
+	tank2->setSize(0.08);
+	tank2->setRotation(180);
+	tank2->setDepth(1.5);
+
+	tank2->setName("tank2");
+	tank2->setVel(0, 0);
+	tank2->setIsAlive(true);
+
+	renderer.addObject(tank2);
 	
 	while (1)
 	{

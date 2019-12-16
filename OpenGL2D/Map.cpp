@@ -220,7 +220,7 @@ void Map::setSizeCoordinates(double sizeX, double sizeY)
 void Map::draw()
 {
 	
-	glColor3f(m_r, m_g, m_b);
+	//glColor3f(m_r, m_g, m_b);
 	
 	glPushMatrix();
 	

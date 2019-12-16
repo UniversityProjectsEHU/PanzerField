@@ -5,6 +5,7 @@
 using namespace std;
 class Sprite: public Drawable
 {
+protected:
 	string m_filename;
 
 	float m_r, m_g, m_b;
