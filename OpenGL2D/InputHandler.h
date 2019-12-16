@@ -7,6 +7,8 @@ class InputHandler
 	static InputHandler* m_pInputHandler;
 	Renderer& m_renderer;
 public:
+	bool menu = true;
+	int level = 0;
 	InputHandler(Renderer& renderer);
 	~InputHandler();
 
