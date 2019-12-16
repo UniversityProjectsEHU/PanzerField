@@ -91,8 +91,15 @@ int main(int argc, char** argv)
 		}
 	}
 	renderer.erase();
+
+	//Create the map BEFORE the tanks
+	string lv = std::to_string(inputHandler.level);
+	string mapstring = string("Map") + lv + ".txt";
+	Map map(mapstring);
+
+
 	//We create a tank
-	Tank *tank = new Tank("tankBLUEv2.png");
+	Tank *tank = new Tank("tankBLUE.png");
 
 	//tank->setColor(255,0,0);
 	tank->setPosition(-0.80, 0.80);
@@ -108,7 +115,7 @@ int main(int argc, char** argv)
 
 
 	//We create a enemy tank
-	TankEnemy *tank2 = new TankEnemy("tankREDv2.png");
+	TankEnemy *tank2 = new TankEnemy("tankRED.png");
 
 	//tank2->setColor(0, 0, 255);
 	tank2->setPosition(0.80, -0.80);
@@ -122,9 +129,7 @@ int main(int argc, char** argv)
 
 	renderer.addObject(tank2);
 	game = true;
-	string lv=std::to_string(inputHandler.level);
-	string mapstring = string("Map") + lv + ".txt";
-	Map map(mapstring);
+
 	
 	
 	while (game)
