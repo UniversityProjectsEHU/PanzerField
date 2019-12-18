@@ -18,9 +18,7 @@
 
 int main(int argc, char** argv)
 {
-	
-	SoundManager soundManager;
-	SoundManager* pSoundManager = SoundManager::getInstance();
+
 	Renderer renderer;
 	InputHandler inputHandler(renderer);
 	CollisionHandler collisionHandler;
@@ -28,8 +26,12 @@ int main(int argc, char** argv)
 	renderer.initialize(argc, argv);
 	inputHandler.initialize();
 
-
-	
+	//SoundManager
+	SoundManager soundManager;
+	SoundManager* pSoundManager = SoundManager::getInstance();
+	pSoundManager->load("../snd/hell2.wav");
+	pSoundManager->load("../snd/explosion.wav");
+	pSoundManager->play("../snd/hell2.wav", 0.5, 0, 0, 0, 0, 0, 0);
 
 	//Main menu
 	Sprite *mainmenu = new Sprite("mainmenu.png");

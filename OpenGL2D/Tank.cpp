@@ -8,6 +8,7 @@
 #include <iostream>
 #include <math.h>
 #include "CollisionHandler.h"
+#include "../SoundManager/SoundManager.h" //relative path to the main header
 # define M_PI           3.14159265358979323846  /* pi */
 
 Tank::Tank(string filename): Sprite(filename)
@@ -83,6 +84,8 @@ void Tank::setVel(double velX, double velY)
 
 void Tank::shoot() {
 	//Bullet *bullet = new Bullet();
+	SoundManager* pSoundManager = SoundManager::getInstance();
+	pSoundManager->play("../snd/explosion.wav", 1, 0, 0, 0, 0, 0, 0);
 	if (bullet->getisAlive()==false)
 	{
 		bullet->setAlive();
