@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SOIL", "..\3rd-party\SOIL\p
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glew2", "..\3rd-party\glew-2.0.0\glew-2.0.0.vcxproj", "{C474717F-F37A-4201-AE32-871219C77803}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundManager-Lib", "..\SoundManager\SoundManager.vcxproj", "{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -49,6 +51,14 @@ Global
 		{C474717F-F37A-4201-AE32-871219C77803}.Release|x64.Build.0 = Release|x64
 		{C474717F-F37A-4201-AE32-871219C77803}.Release|x86.ActiveCfg = Release|Win32
 		{C474717F-F37A-4201-AE32-871219C77803}.Release|x86.Build.0 = Release|Win32
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Debug|x64.ActiveCfg = Debug|x64
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Debug|x64.Build.0 = Debug|x64
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Debug|x86.ActiveCfg = Debug|Win32
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Debug|x86.Build.0 = Debug|Win32
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Release|x64.ActiveCfg = Release|x64
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Release|x64.Build.0 = Release|x64
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Release|x86.ActiveCfg = Release|Win32
+		{A57F9D62-1D00-4D1C-A5C3-BB3710EDD95B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
