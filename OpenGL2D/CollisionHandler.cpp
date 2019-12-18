@@ -168,3 +168,7 @@ vector<int> CollisionHandler::handleCollision(string name)
 	}
 	return vectorCollisions;
 }
+vector<Drawable*> CollisionHandler::getVector()
+{
+	return m_objects2D;
+}

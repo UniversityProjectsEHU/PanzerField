@@ -56,9 +56,9 @@ void Renderer::initialize(int argc, char** argv)
 	glutReshapeFunc(__reshapeWindow);
 }
 
-vector<Drawable> Renderer::getVector()
+vector<Drawable*>& Renderer::getVector()
 {
-	return vector<Drawable>();
+	return m_objects2D;
 }
 
 void Renderer::set2DMatrix()
