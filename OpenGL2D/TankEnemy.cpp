@@ -139,4 +139,7 @@ void TankEnemy::setIsAlive(bool live)
 	isAlive = live;
 }
 
-
+void TankEnemy::addBullet2Renderer()
+{
+	Renderer::get()->addObject(bullet);
+}

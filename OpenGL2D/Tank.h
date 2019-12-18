@@ -26,6 +26,7 @@ public:
 	void setVelRotation(double velRotation);
 	bool getIsAlive();
 	void setIsAlive(bool live);
+	void addBullet2Renderer();
 
 
 

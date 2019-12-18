@@ -142,4 +142,9 @@ void Tank::setIsAlive(bool live)
 	isAlive = live;
 }
 
+void Tank::addBullet2Renderer()
+{
+	Renderer::get()->addObject(bullet);
+}
+
 

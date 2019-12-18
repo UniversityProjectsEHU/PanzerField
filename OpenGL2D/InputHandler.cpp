@@ -189,6 +189,18 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		}
 		
 		break;
+
+		//z
+	case 122:
+		if (game&&finished)
+		{
+			finished = false;
+			game = false;
+			menu = true;
+			level = 0;
+		}
+		
+		break;
 	case 27: exit(0);
 	}
 }
