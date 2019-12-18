@@ -4,6 +4,7 @@
 #include "Sprite.h"
 #include "Renderer.h"
 #include "Tank.h"
+#define GLUT_STATIC
 #include "../3rd-party/freeglut3/include/GL/freeglut.h"
 #include <iostream>
 #include <vector>

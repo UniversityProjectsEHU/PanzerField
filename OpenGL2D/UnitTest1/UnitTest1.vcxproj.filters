@@ -59,13 +59,10 @@
     <ClCompile Include="..\Tank.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\AnimatedSprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionHandlerTests.cpp">
+    <ClCompile Include="CollisionHandlerTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
