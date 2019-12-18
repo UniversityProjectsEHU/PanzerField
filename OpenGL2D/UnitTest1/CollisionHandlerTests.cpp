@@ -44,6 +44,7 @@ namespace PanzerFieldTests
 			vector <Drawable*> m_objects2D = renderer.get()->getVector();
 
 
+
 		}
 	};
 }
