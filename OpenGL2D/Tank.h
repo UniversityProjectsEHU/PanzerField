@@ -9,7 +9,6 @@ public:
 	Tank(string filename);
 	~Tank();
 
-	string m_filename;
 	Timer timer;
 	double m_velx;
 	double m_vely;
@@ -17,12 +16,17 @@ public:
 	double frontx;
 	double fronty;
 	Bullet *bullet;
+	bool isAlive;
+	
 
 
 	void tick();
 	void draw();
 	void setVel(double velX, double velY);
 	void setVelRotation(double velRotation);
+	bool getIsAlive();
+	void setIsAlive(bool live);
+	void addBullet2Renderer();
 
 
 

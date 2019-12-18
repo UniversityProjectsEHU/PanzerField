@@ -13,6 +13,7 @@ public:
 	CollisionHandler();
 	~CollisionHandler();
 
+	void CollisionHandler::erase();
 
 	static CollisionHandler* get(); //this method returns the only instance to the CollisionHandler. Needs to be called after the constructor
 	void addObjectCol(Drawable* pObj);

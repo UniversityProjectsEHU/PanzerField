@@ -8,6 +8,7 @@
 #include <iostream>
 #include <math.h>
 #include "CollisionHandler.h"
+#include "../SoundManager/SoundManager.h" //relative path to the main header
 # define M_PI           3.14159265358979323846  /* pi */
 
 Tank::Tank(string filename): Sprite(filename)
@@ -17,7 +18,7 @@ Tank::Tank(string filename): Sprite(filename)
 	bullet = new Bullet("bala2.png");
 	bullet->setName("bullet");
 	Renderer::get()->addObject(bullet);
-	TextureManager::getInstance()->create2DTexture("tankBLUEv2.png");
+	isAlive = true;
 }
 
 Tank::~Tank()
@@ -51,8 +52,8 @@ void Tank::tick()
 	string name = Sprite::getName();
 	collisions = CollisionHandler::get()->handleCollision(name);
 	if (collisions[1]==1) { //Collision with bullet
-
-		Renderer::get()->clearAll();
+		isAlive = false;
+		CollisionHandler::get()->erase();
 	}
 	else if (collisions[0] == 1) //Collision with wall
 	{
@@ -83,6 +84,8 @@ void Tank::setVel(double velX, double velY)
 
 void Tank::shoot() {
 	//Bullet *bullet = new Bullet();
+	SoundManager* pSoundManager = SoundManager::getInstance();
+	pSoundManager->play("../snd/explosion.wav", 0.6, 0, 0, 0, 0, 0, 0);
 	if (bullet->getisAlive()==false)
 	{
 		bullet->setAlive();
@@ -104,7 +107,7 @@ void Tank::shoot() {
 
 void Tank::draw() {
 	tick();
-	TextureManager::getInstance()->useTexture("tankBLUEv2.png");
+	TextureManager::getInstance()->useTexture(m_filename);
 	//1. Pass the object's color to OpenGL
 	//glColor3f(Sprite::getRed(), Sprite::getGreen(),Sprite::getBlue());
 	//2. Save the current transformation matrix
@@ -130,6 +133,21 @@ void Tank::draw() {
 void Tank::setVelRotation(double velRotation)
 {
 	m_velrotation = velRotation;
+}
+
+bool Tank::getIsAlive()
+{
+	return isAlive;
+}
+
+void Tank::setIsAlive(bool live)
+{
+	isAlive = live;
+}
+
+void Tank::addBullet2Renderer()
+{
+	Renderer::get()->addObject(bullet);
 }
 
 

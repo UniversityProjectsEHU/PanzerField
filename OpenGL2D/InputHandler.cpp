@@ -8,12 +8,16 @@
 #include <iostream>
 #include <vector>
 #include "TankEnemy.h"
-
+#include <cstdlib>
+#include <ctime>    // For time()
+#include "../SoundManager/SoundManager.h" //relative path to the main header
+//
 InputHandler* InputHandler::m_pInputHandler = nullptr;
 
 InputHandler::InputHandler(Renderer& renderer) : m_renderer(renderer)
 {
 	m_pInputHandler = this;
+
 }
 
 
@@ -30,7 +34,7 @@ void InputHandler::initialize()
 //Actions when the key is down
 void InputHandler::processKeyboard(unsigned char key, int x, int y)
 {
-	//0std::cout << key;
+	SoundManager* pSoundManager = SoundManager::getInstance();
 	std::vector<Drawable*> vectorObjects;
 	//keyboard callback function
 	switch (key)
@@ -87,45 +91,98 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 		//tank2
 			//1
 	case 49:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			TankEnemy* theTank = (TankEnemy*)var;
-			double theRotation = theTank->getRotation();
-			theTank->setVelRotation(100);
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
+			level = 1;
+		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				TankEnemy* theTank = (TankEnemy*)var;
+				double theRotation = theTank->getRotation();
+				theTank->setVelRotation(100);
+			}
 		}
 		break;
 		//5
 	case 53:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			Sprite* theObject = (Sprite*)var;
-			TankEnemy* theTank = (TankEnemy*)theObject;
-			theTank->setVel(0.5, 0.5);
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
+			level = 5;
+		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				Sprite* theObject = (Sprite*)var;
+				TankEnemy* theTank = (TankEnemy*)theObject;
+				theTank->setVel(0.5, 0.5);
+			}
 		}
 		break;
 		//2
 	case 50:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			Sprite* theObject = (Sprite*)var;
-			TankEnemy* theTank = (TankEnemy*)theObject;
-			theTank->setVel(-0.5, -0.5);
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
+			level = 2;
 		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				Sprite* theObject = (Sprite*)var;
+				TankEnemy* theTank = (TankEnemy*)theObject;
+				theTank->setVel(-0.5, -0.5);
+			}
+		}
+		
 		break;
 		//3
 	case 51:
-		vectorObjects = m_renderer.getObjects("tank2");
-		for each (Drawable* var in vectorObjects)
+		if (menu)
 		{
-			Sprite* theObject = (Sprite*)var;
-			TankEnemy* theTank = (TankEnemy*)theObject;
-			double theRotation = theTank->getRotation();
-			theTank->setVelRotation(-100);
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
+			level = 3;
 		}
+		else
+		{
+			vectorObjects = m_renderer.getObjects("tank2");
+			for each (Drawable* var in vectorObjects)
+			{
+				Sprite* theObject = (Sprite*)var;
+				TankEnemy* theTank = (TankEnemy*)theObject;
+				double theRotation = theTank->getRotation();
+				theTank->setVelRotation(-100);
+			}
+		}
+		
 		break;
+		//4
+	case 52:
+		if (menu)
+		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
+			level = 4;
+		}
+
+		break;
+		//6
+	case 54:
+		if (menu)
+		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
+			level = 6;
+		}
+
+		break;
+		//0
 	case 48:
 		vectorObjects = m_renderer.getObjects("tank2");
 		for each (Drawable* var in vectorObjects)
@@ -134,6 +191,26 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 			theTank->shoot();
 		}
 		break;
+	case 13:
+		if (level != 0)
+		{
+
+			menu = false;
+		}
+		
+		break;
+
+		//z
+	case 122:
+		if (game&&finished)
+		{
+			finished = false;
+			game = false;
+			menu = true;
+			level = 0;
+		}
+		
+		break;
 	case 27: exit(0);
 	}
 }
@@ -141,7 +218,6 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 //Actions when the key is up
 void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 {
-	std::cout << key;
 	std::vector<Drawable*> vectorObjects;
 	//keyboard callback function
 	switch (key)

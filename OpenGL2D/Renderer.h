@@ -28,7 +28,7 @@ public:
 	void addObject(Drawable* pObj);
 	void clearAll();
 	void reshapeWindow(int x, int y);
-	void erase(Drawable* obj);
+	void erase();
 	static void __drawScene();
 	static void __reshapeWindow(int x, int y);
 	void deleteObject(Sprite *object);

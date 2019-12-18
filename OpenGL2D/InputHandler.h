@@ -7,6 +7,10 @@ class InputHandler
 	static InputHandler* m_pInputHandler;
 	Renderer& m_renderer;
 public:
+	bool menu = true;
+	bool game = false;
+	bool finished = false;
+	int level = 0;
 	InputHandler(Renderer& renderer);
 	~InputHandler();
 

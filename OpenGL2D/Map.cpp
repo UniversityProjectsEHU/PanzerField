@@ -128,18 +128,18 @@ void Map::createFieldSprite(double xaxis, double yaxis)
 void Map::createBorders()
 {
 	//Background
-	Sprite* pSprite7 = new Sprite("hierba.png");
+	Sprite* pSprite7 = new Sprite("hierba3.png");
 	pSprite7->setColor(150, 150, 0);
 	pSprite7->setPosition(0, 0);
 	pSprite7->setRotation(0.0);
-	pSprite7->setSizeCoordinates(10, 10);
+	pSprite7->setSizeCoordinates(1, 1);
 	pSprite7->setDepth(1);
 	pSprite7->setName("background");
 	Renderer::get()->addObject(pSprite7);
 	CollisionHandler::get()->addObjectCol(pSprite7);
 
 	//North border
-	Sprite* pSprite3 = new Sprite("fondoAgua.png");
+	Sprite* pSprite3 = new Sprite("aguaRectangular2.png");
 	pSprite3->setColor(150, 150, 0);
 	pSprite3->setPosition(-1,1);
 	pSprite3->setRotation(0.0);
@@ -150,7 +150,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite3);
 
 	//East border
-	Sprite* pSprite4 = new Sprite("fondoAgua.png");
+	Sprite* pSprite4 = new Sprite("aguaRectangular1.png");
 	pSprite4->setColor(150, 150, 0);
 	pSprite4->setPosition(1, 1);
 	pSprite4->setRotation(0.0);
@@ -161,7 +161,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite4);
 
 	//West border
-	Sprite* pSprite5 = new Sprite("fondoAgua.png");
+	Sprite* pSprite5 = new Sprite("aguaRectangular1.png");
 	pSprite5->setColor(150, 150, 0);
 	pSprite5->setPosition(-1, 1);
 	pSprite5->setRotation(0.0);
@@ -172,7 +172,7 @@ void Map::createBorders()
 	CollisionHandler::get()->addObjectCol(pSprite5);
 
 	//South border
-	Sprite* pSprite6 = new Sprite("fondoAgua.png");
+	Sprite* pSprite6 = new Sprite("aguaRectangular2.png");
 	pSprite6->setColor(150, 150, 0);
 	pSprite6->setPosition(-1, -1);
 	pSprite6->setRotation(0.0);
@@ -220,7 +220,7 @@ void Map::setSizeCoordinates(double sizeX, double sizeY)
 void Map::draw()
 {
 	
-	glColor3f(m_r, m_g, m_b);
+	//glColor3f(m_r, m_g, m_b);
 	
 	glPushMatrix();
 	

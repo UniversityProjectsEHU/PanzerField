@@ -18,6 +18,11 @@ CollisionHandler::~CollisionHandler()
 {
 }
 
+void CollisionHandler::erase()
+{
+	m_objects2D.clear();
+}
+
 CollisionHandler * CollisionHandler::get()
 {
 	return m_pCollision;
@@ -29,6 +34,7 @@ void CollisionHandler::addObjectCol(Drawable* pObj)
 {
 	m_objects2D.push_back(pObj);
 }
+
 
 vector<int> CollisionHandler::handleCollision(string name)
 {
@@ -140,7 +146,7 @@ vector<int> CollisionHandler::handleCollision(string name)
 						double pointy = theObject2->getPositionY();
 						double size2 = theObject2->getSize();
 						double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
-						if (modulocollision < (size1 / 2 + size2 / 2))
+						if (modulocollision < 0.07 + (size1 / 2 + size2 / 2))
 						{
 							vectorCollisions[2] = 1;
 						}
@@ -152,7 +158,7 @@ vector<int> CollisionHandler::handleCollision(string name)
 						double pointy = theObject2->getPositionY();
 						double size2 = theObject2->getSize();
 						double modulocollision = sqrt(pow(pointx - x, 2) + pow(pointy - y, 2));
-						if (modulocollision < (size1 / 2 + size2 / 2))
+						if (modulocollision <0.07+ (size1 / 2 + size2 / 2))
 						{
 							vectorCollisions[3] = 1;
 						}
