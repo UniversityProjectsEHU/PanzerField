@@ -50,30 +50,8 @@ int main(int argc, char** argv)
 	Sprite *level6 = new Sprite("menulevel6.png");
 	level6->setName("menu");
 	//
-
-	//We create a tank
-	Tank *tank = new Tank("tankBLUE.png");
-
-	//tank->setColor(255,0,0);
-	
-
-	tank->setName("tank1");
-	tank->setVel(0, 0);
-	tank->setIsAlive(true);
-
-	
-
-
-	//We create a enemy tank
-	TankEnemy *tank2 = new TankEnemy("tankRED.png");
-
-	//tank2->setColor(0, 0, 255);
-	
-
-	tank2->setName("tank2");
-	tank2->setVel(0, 0);
-	tank2->setIsAlive(true);
-
+	Tank *tank;
+	TankEnemy *tank2;
 	
 
 	renderer.addObject(mainmenu);
@@ -81,6 +59,19 @@ int main(int argc, char** argv)
 
 	while (!inputHandler.finished)
 	{
+		//We create a tank
+		
+		
+		tank=new Tank("tankBLUE.png");
+		tank->setName("tank1");
+		tank->setVel(0, 0);
+		tank->setIsAlive(true);
+		//We create a enemy tank
+		tank2= new TankEnemy("tankRED.png");
+		tank2->setName("tank2");
+		tank2->setVel(0, 0);
+		tank2->setIsAlive(true);
+
 		while (inputHandler.menu)
 		{
 
@@ -149,6 +140,7 @@ int main(int argc, char** argv)
 		tank2->setDepth(1.5);
 		renderer.addObject(tank2);
 		tank2->addBullet2Renderer();
+		CollisionHandler::get()->addObjectCol(tank2);
 
 		inputHandler.game = true;
 

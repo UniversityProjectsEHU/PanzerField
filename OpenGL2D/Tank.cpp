@@ -52,8 +52,8 @@ void Tank::tick()
 	string name = Sprite::getName();
 	collisions = CollisionHandler::get()->handleCollision(name);
 	if (collisions[1]==1) { //Collision with bullet
-		//Renderer::get()->clearAll();
 		isAlive = false;
+		CollisionHandler::get()->erase();
 	}
 	else if (collisions[0] == 1) //Collision with wall
 	{
