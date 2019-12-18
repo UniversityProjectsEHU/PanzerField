@@ -29,6 +29,10 @@ void CollisionHandler::addObjectCol(Drawable* pObj)
 {
 	m_objects2D.push_back(pObj);
 }
+void CollisionHandler::erase()
+{
+	m_objects2D.clear();
+}
 
 vector<int> CollisionHandler::handleCollision(string name)
 {
