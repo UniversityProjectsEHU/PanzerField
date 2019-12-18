@@ -8,6 +8,9 @@
 #include <iostream>
 #include <vector>
 #include "TankEnemy.h"
+#include <cstdlib>
+#include <ctime>    // For time()
+#include "../SoundManager/SoundManager.h" //relative path to the main header
 //
 InputHandler* InputHandler::m_pInputHandler = nullptr;
 
@@ -31,7 +34,7 @@ void InputHandler::initialize()
 //Actions when the key is down
 void InputHandler::processKeyboard(unsigned char key, int x, int y)
 {
-	//0std::cout << key;
+	SoundManager* pSoundManager = SoundManager::getInstance();
 	std::vector<Drawable*> vectorObjects;
 	//keyboard callback function
 	switch (key)
@@ -90,6 +93,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 49:
 		if (menu)
 		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
 			level = 1;
 		}
 		else
@@ -107,6 +111,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 53:
 		if (menu)
 		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
 			level = 5;
 		}
 		else
@@ -124,6 +129,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 50:
 		if (menu)
 		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
 			level = 2;
 		}
 		else
@@ -142,6 +148,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 51:
 		if (menu)
 		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
 			level = 3;
 		}
 		else
@@ -161,6 +168,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 52:
 		if (menu)
 		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
 			level = 4;
 		}
 
@@ -169,6 +177,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 54:
 		if (menu)
 		{
+			pSoundManager->play("../snd/menu.wav", 0.6, 0, 0, 0, 0, 0, 0);
 			level = 6;
 		}
 
@@ -185,6 +194,7 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 	case 13:
 		if (level != 0)
 		{
+
 			menu = false;
 		}
 		
@@ -208,7 +218,6 @@ void InputHandler::processKeyboard(unsigned char key, int x, int y)
 //Actions when the key is up
 void InputHandler::processKeyboard2(unsigned char key, int x, int y)
 {
-	std::cout << key;
 	std::vector<Drawable*> vectorObjects;
 	//keyboard callback function
 	switch (key)

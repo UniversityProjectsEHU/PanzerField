@@ -84,7 +84,7 @@ void TankEnemy::setVel(double velX, double velY)
 void TankEnemy::shoot() {
 	//Bullet *bullet = new Bullet();
 	SoundManager* pSoundManager = SoundManager::getInstance();
-	pSoundManager->play("../snd/explosion.wav", 1, 0, 0, 0, 0, 0, 0);
+	pSoundManager->play("../snd/explosion.wav", 0.6, 0, 0, 0, 0, 0, 0);
 	if (bullet->getisAlive() == false)
 	{
 		bullet->setAlive();

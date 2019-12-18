@@ -11,6 +11,8 @@
 #include "Tank.h"
 #include "CollisionHandler.h"
 #include "TankEnemy.h"
+#include <cstdlib>
+#include <ctime>    // For time()
 #include "../SoundManager/SoundManager.h" //relative path to the main header
 
 
@@ -29,9 +31,9 @@ int main(int argc, char** argv)
 	//SoundManager
 	SoundManager soundManager;
 	SoundManager* pSoundManager = SoundManager::getInstance();
-	pSoundManager->load("../snd/hell2.wav");
 	pSoundManager->load("../snd/explosion.wav");
-	pSoundManager->play("../snd/hell2.wav", 0.5, 0, 0, 0, 0, 0, 0);
+	pSoundManager->load("../snd/menu.wav");
+
 
 	//Main menu
 	Sprite *mainmenu = new Sprite("mainmenu.png");
@@ -49,6 +51,8 @@ int main(int argc, char** argv)
 	level5->setName("menu");
 	Sprite *level6 = new Sprite("menulevel6.png");
 	level6->setName("menu");
+	Sprite *loading = new Sprite("loading.png");
+	loading->setName("loading");
 	//
 	Tank *tank;
 	TankEnemy *tank2;
@@ -56,7 +60,7 @@ int main(int argc, char** argv)
 
 	renderer.addObject(mainmenu);
 	
-
+	int veces = 0;
 	while (!inputHandler.finished)
 	{
 		//We create a tank
@@ -117,7 +121,24 @@ int main(int argc, char** argv)
 			}
 		}
 		renderer.erase();
-
+		renderer.addObject(loading);
+		glutMainLoopEvent();
+		//RENDER////////////////////
+		////////////////////////////
+		glutPostRedisplay();
+		glutSwapBuffers();
+		srand(time(0));  // Initialize random number generator.
+		int r = rand() % 100;
+		veces++;
+		if (r <= 50 && veces==1) {
+			pSoundManager->load("../snd/hell2.wav");
+			pSoundManager->play("../snd/hell2.wav", 0.6, 0, 0, 0, 0, 0, 0);
+		}
+		else if(veces == 1) {
+			pSoundManager->load("../snd/panzerkampf.wav");
+			pSoundManager->play("../snd/panzerkampf.wav", 0.6, 0, 0, 0, 0, 0, 0);
+		}
+		renderer.erase();
 		//Create the map BEFORE the tanks
 		string lv = std::to_string(inputHandler.level);
 		string mapstring = string("Map") + lv + ".txt";
