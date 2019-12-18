@@ -11,13 +11,16 @@
 #include "Tank.h"
 #include "CollisionHandler.h"
 #include "TankEnemy.h"
+#include "../SoundManager/SoundManager.h" //relative path to the main header
+
 
 
 
 int main(int argc, char** argv)
 {
-	bool menu = true;
-	bool game = false;
+	
+	SoundManager soundManager;
+	SoundManager* pSoundManager = SoundManager::getInstance();
 	Renderer renderer;
 	InputHandler inputHandler(renderer);
 	CollisionHandler collisionHandler;
