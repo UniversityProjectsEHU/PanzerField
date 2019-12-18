@@ -43,6 +43,7 @@ namespace PanzerFieldTests
 			CollisionHandler::get()->addObjectCol(tank);
 			vector <Drawable*> m_objects2D = renderer.get()->getVector();
 
+
 		}
 	};
 }
